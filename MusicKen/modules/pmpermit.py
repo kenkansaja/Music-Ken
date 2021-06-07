@@ -1,18 +1,3 @@
-# Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from pyrogram import Client
 import asyncio
@@ -63,7 +48,7 @@ async def autopmPermiat(client: USER, message: Message):
         return
     message.continue_propagation()    
     
-@USER.on_message(filters.command("yes", [".", ""]) & filters.me & filters.private)
+@USER.on_message(filters.command("y", [".", ""]) & filters.me & filters.private)
 async def pmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
@@ -73,7 +58,7 @@ async def pmPermiat(client: USER, message: Message):
     message.continue_propagation()    
     
 
-@USER.on_message(filters.command("no", [".", ""]) & filters.me & filters.private)
+@USER.on_message(filters.command("n", [".", ""]) & filters.me & filters.private)
 async def rmpmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if chat_id in pchats:
