@@ -400,9 +400,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("play"))
-@errors
-@authorized_users_only
+@Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
@@ -631,7 +629,6 @@ async def play(_, message: Message):
 
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
-@authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
     lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
@@ -756,7 +753,6 @@ async def deezer(client: Client, message_: Message):
 
 
 @Client.on_message(filters.command("splay") & filters.group & ~filters.edited)
-@authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
     lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
