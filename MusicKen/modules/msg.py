@@ -1,18 +1,3 @@
-# Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL, OWNER
@@ -22,9 +7,9 @@ class Messages():
 f"""
 **Hey 👋 Selamat datang kembali di {PROJECT_NAME}
 
-✣️ {PROJECT_NAME} dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah.
+📀 {PROJECT_NAME} dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah.
 
-✣️ Assistant Music » @{ASSISTANT_NAME}\n\nKlik Next untuk instruksi**
+📀 Assistant Music » @{ASSISTANT_NAME}\n\nKlik Next untuk instruksi**
 
 """,
 
@@ -38,10 +23,15 @@ f"""
 × Jika Assistant Bot tidak bergabung Silahkan Tambahkan @{ASSISTANT_NAME} ke grup Anda dan coba lagi
 
 
-**» Perintah Untuk dalam grup Member Juga Bisa :**
+**» Perintah member dan admin :**
 
  × /playlist : Untuk Menampilkan daftar putar Lagu sekarang
  × /current : Untuk Menunjukkan  Lagu sekarang yang sedang diputar
+ x /splay : Untuk Memutar lagu yang Anda minta melalui jio saavn
+ × /skip : Untuk Menskip pemutaran lagu ke Lagu berikutnya
+ × /pause : Untuk Menjeda pemutaran Lagu
+ × /resume : Untuk Melanjutkan pemutaran Lagu yang di pause
+ × /end : Untuk Memberhentikan pemutaran Lagu
  × /song <judul lagu> : Untuk Mendownload lagu di YouTube 
  × /video <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
  × /vsong <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
