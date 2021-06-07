@@ -400,7 +400,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command("play"))
 @errors
 @authorized_users_only
 async def play(_, message: Message):
