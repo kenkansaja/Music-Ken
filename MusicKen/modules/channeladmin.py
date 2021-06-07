@@ -1,19 +1,3 @@
-# Calls Music 1 - Telegram bot for streaming audio in group calls
-# Copyright (C) 2021  Roj Serbest
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 
 from asyncio.queues import QueueEmpty
 from MusicKen.config import que
@@ -29,8 +13,6 @@ from MusicKen.services.callsmusic import callsmusic
 
 
 @Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
-@errors
-@authorized_users_only
 async def pause(_, message: Message):
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -50,8 +32,6 @@ async def pause(_, message: Message):
 
 
 @Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.edited)
-@errors
-@authorized_users_only
 async def resume(_, message: Message):
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -71,8 +51,6 @@ async def resume(_, message: Message):
 
 
 @Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.edited)
-@errors
-@authorized_users_only
 async def stop(_, message: Message):
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -95,8 +73,6 @@ async def stop(_, message: Message):
 
 
 @Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
-@errors
-@authorized_users_only
 async def skip(_, message: Message):
     global que
     try:
@@ -123,7 +99,6 @@ async def skip(_, message: Message):
 
 
 @Client.on_message(filters.command("channeladmincache"))
-@errors
 async def admincache(client, message: Message):
     try:
       conchat = await client.get_chat(message.chat.id)
