@@ -32,7 +32,7 @@
 ## VIA Repl.it
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
-<a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/run-string__session-blue?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
+<a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/STRINGS-SESSION-blue?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
 
 ## VIA BOT TELEGRAM
 Khusus strings pyrogram
