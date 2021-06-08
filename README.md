@@ -42,7 +42,7 @@ Khusus strings pyrogram
 ```sh
 # Install Git First (apt-instll git)
 $ git clone https://github.com/kenkannih/Music-Ken
-$ cd musikku
+$ cd Music-Ken
 # Upgrade sources
 # Install All Requirements 
 $ pip(3) install -r requirements.txt
