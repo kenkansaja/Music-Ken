@@ -13,6 +13,10 @@
       "description": "Masukan Bot Token dari @BotFather",
       "required": true
     },
+    "START_FOTO_IMG": {
+      "description": "Silahkan isi dengan foto bentuk link untuk isi pesan start",
+      "value": ""
+    },
     "BOT_USERNAME": {
       "description": "Username bot Anda tanpa @",
       "required": true
@@ -35,7 +39,7 @@
     "PROJECT_NAME": {
       "description": "Nama proyek MusicPlayer Anda.",
       "required": false,
-      "value": "Music-Ken"
+      "value": "MUSIK KU"
     },
     "ASSISTANT_NAME": {
       "description": "Username Telegram asisten MusicPlayer Anda tanpa @.",
