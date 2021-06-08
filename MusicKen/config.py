@@ -43,5 +43,6 @@ ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 PMPERMIT = getenv("PMPERMIT", None)
 LOG_GRP = getenv("LOG_GRP", None)
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
+START_FOTO = getenv("START_FOTO", "https://telegra.ph/file/c8227ff23fa75b9d2b9f7.jpg")
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
