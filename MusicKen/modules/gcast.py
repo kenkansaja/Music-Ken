@@ -14,7 +14,7 @@ async def bye(client, message):
             await lol.edit("**Balas pesan teks apa pun untuk gcast**")
             return
         msg = message.reply_to_message.text
-        for dialog in client.iter_dialogs():
+        async for dialog in client.iter_dialogs():
             try:
                 await client.send_message(dialog.chat.id, msg)
                 sent = sent+1
