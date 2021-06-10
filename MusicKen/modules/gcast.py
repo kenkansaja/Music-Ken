@@ -22,5 +22,5 @@ async def bye(client, message):
             except:
                 failed=failed+1
                 await lol.edit(f"**Berhasil Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
-            await asyncio.sleep(0.7)
+            await asyncio.sleep(3)
         await message.reply_text(f"**Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
