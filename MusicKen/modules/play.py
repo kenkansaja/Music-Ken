@@ -39,7 +39,7 @@ aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
 
-
+useer ="Musik"
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
         admemes = a.get(cb.message.chat.id)
@@ -615,6 +615,7 @@ async def play(_, message: Message):
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
     global que
+    global useer
     lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
@@ -739,6 +740,7 @@ async def deezer(client: Client, message_: Message):
 @Client.on_message(filters.command("splay") & filters.group & ~filters.edited)
 async def jiosaavn(client: Client, message_: Message):
     global que
+    global useer
     lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
