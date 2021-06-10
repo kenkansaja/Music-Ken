@@ -840,8 +840,8 @@ async def jiosaavn(client: Client, message_: Message):
         await res.edit_text(f"🎼️ **Sedang Memutar Lagu**")
         que[chat_id] = []
         qeue = que.get(chat_id)
-        s_name = sname
-        r_by = message_.from_user
+        s_name = title
+        r_by = message.reply_to_message.from_user
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
