@@ -14,14 +14,13 @@ logging.basicConfig(level=logging.INFO)
 async def start_(client: Client, message: Message):
     await message.reply_photo(START_FOTO_IMG)
     await message.reply_text( 
-        f"""<b>┗┓ Haii {message.from_user.first_name} saya adalah {PROJECT_NAME} ┏┛\n
+        f"""<b>┗┓ Haii {message.from_user.first_name} saya adalah {PROJECT_NAME} ┏┛\n\n
 Saya Bot Music Group, Yang dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah
 Saya Memiliki Banyak Fitur Praktis Seperti :
 ┏━━━━━━━━━━━━━━
 ┣• Memutar Musik.
 ┣• Mendownload Lagu.
 ┣• Mencari Lagu Yang ingin di Putar atau di Download.
-┣• Gunakan Perintah » /help « untuk Mengetahui Fitur Lengkap saya
 ┗━━━━━━━━━━━━━━
 ❃ Managed With ❤ By {OWNER}
 ❃ Thanks To [KEN KAN](https://t.me/kenkanasw)
@@ -44,7 +43,7 @@ Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!
                         "💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "❓ HELP ❓", callback_data = "help+2")
+                        "❓ HELP ❓", callback_data = "help")
                 ],[
                     InlineKeyboardButton(
                         "🛠 CLONE 🛠", url=f"https://{SOURCE_CODE}")
