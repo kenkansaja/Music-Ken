@@ -25,19 +25,25 @@ f"""
 
 **» Perintah member dan admin :**
 
- × /playlist : Untuk Menampilkan daftar putar Lagu sekarang
- × /current : Untuk Menunjukkan  Lagu sekarang yang sedang diputar
- x /splay : Untuk Memutar lagu yang Anda minta melalui jio saavn
- × /skip : Untuk Menskip pemutaran lagu ke Lagu berikutnya
- × /pause : Untuk Menjeda pemutaran Lagu
- × /resume : Untuk Melanjutkan pemutaran Lagu yang di pause
- × /end : Untuk Memberhentikan pemutaran Lagu
- × /song <judul lagu> : Untuk Mendownload lagu di YouTube 
- × /video <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
- × /vsong <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
- × /deezer <judul lagu> : Untuk Mendownload lagu dari deezer 
- × /saavn <judul lagu> : Untuk Mendownload lagu dari website saavn
- × /search <judul lagu> : Untuk Mencari Video di YouTube dengan detail
+× /play <judul lagu> : Untuk Memutar lagu yang Anda minta melalui youtube
+× /play <link yt> : Untuk Memutar lagu yang Anda minta melalui link youtube
+× /play <reply ke audio> : Untuk Memutar lagu yang Anda minta melalui file audio
+× /dplay : Untuk Memutar lagu yang Anda minta melalui deezer
+× /splay : Untuk Memutar lagu yang Anda minta melalui jio saavn
+× /skip : Untuk Menskip pemutaran lagu ke Lagu berikutnya
+× /playlist : Untuk Menampilkan daftar putar Lagu sekarang
+× /current : Untuk Menunjukkan  Lagu sekarang yang sedang diputar
+x /splay : Untuk Memutar lagu yang Anda minta melalui jio saavn
+× /skip : Untuk Menskip pemutaran lagu ke Lagu berikutnya
+× /pause : Untuk Menjeda pemutaran Lagu
+× /resume : Untuk Melanjutkan pemutaran Lagu yang di pause
+× /end : Untuk Memberhentikan pemutaran Lagu
+× /song <judul lagu> : Untuk Mendownload lagu di YouTube 
+× /video <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
+× /vsong <judul lagu> : Untuk Mendownload Video di YouTube dengan detail
+× /deezer <judul lagu> : Untuk Mendownload lagu dari deezer 
+× /saavn <judul lagu> : Untuk Mendownload lagu dari website saavn
+× /search <judul lagu> : Untuk Mencari Video di YouTube dengan detail
 
 **» Perintah Hanya Untuk Admin :**
 
