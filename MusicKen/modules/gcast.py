@@ -1,5 +1,5 @@
 from MusicKen.config import que
-from MusicKen.config import SUDO_USER
+from MusicKen.config import SUDO_USERS
 
 
 @que(outgoing=True, pattern="^.gcast (.*)")
