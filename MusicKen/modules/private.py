@@ -3,7 +3,7 @@ import logging
 from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER, START_FOTO_IMG
+from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER, STICKERS
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(
@@ -25,7 +25,7 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
 ❃ Managed With ❤ By {OWNER}
 ❃ Thanks To [KEN KAN](https://t.me/kenkanasw)
 ━━━━━━━━━━━━━━━
-Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!
+Ingin Menambahkan {PROJECT_NAME} ke Grup Anda? Tambahkan Saya Ke Group Anda!
 </b>""",
 
 # Edit Yang Perlu Lu ganti 
