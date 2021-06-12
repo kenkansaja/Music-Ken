@@ -75,11 +75,6 @@
       "description": "Daftar User ID Telegram pengguna dihitung sebagai admin di semua tempat (pemisah menggunakan space)",
       "required": true
     },
-    "STICKERS": {
-      "description": "format sticker harus base64.",
-      "required": false,
-      "value": ""
-    },
     "DURATION_LIMIT": {
       "description": "Batas durasi audio maksimal untuk download (minutes).",
       "required": true,
