@@ -3,7 +3,7 @@ import logging
 from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER, STICKERS
+from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(
@@ -12,7 +12,6 @@ logging.basicConfig(level=logging.INFO)
     & ~ filters.edited
 )
 async def start_(client: Client, message: Message):
-    await message.reply_sticker("{STICKERS}")
     await message.reply_text( 
         f"""<b>┗┓ Haii {message.from_user.first_name} ┏┛\n\n
 Saya Bot Music Group, Yang dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah
