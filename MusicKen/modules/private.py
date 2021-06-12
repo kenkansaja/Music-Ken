@@ -11,8 +11,7 @@ logging.basicConfig(level=logging.INFO)
     & filters.private
     & ~ filters.edited
 )
-async def start_(client: Client, message: Message):
-    await message.reply_sticker(STICKERS)
+async def start_(client: Client, message: Message)
     await message.reply_text( 
         f"""<b>┗┓ Haii {message.from_user.first_name} ┏┛\n\n
 Saya Bot Music Group, Yang dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah
