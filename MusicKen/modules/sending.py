@@ -9,7 +9,6 @@ import asyncio
 from MusicKen.config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
-    """ client gcast. """
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     ignore_unsafe = args.get('ignore_unsafe', False)
