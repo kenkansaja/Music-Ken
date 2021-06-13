@@ -13,10 +13,6 @@
       "description": "Masukan Bot Token dari @BotFather",
       "required": true
     },
-    "START_FOTO_IMG": {
-      "description": "Silahkan isi dengan foto bentuk link untuk isi pesan start",
-      "value": ""
-    },
     "BOT_USERNAME": {
       "description": "Username bot Anda tanpa @",
       "required": true
