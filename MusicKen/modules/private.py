@@ -26,7 +26,7 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
 ━━━━━━━━━━━━━━━
 Ingin Menambahkan {PROJECT_NAME} ke Grup Anda? Tambahkan Saya Ke Group Anda!
 </b>""",
-
+disable_web_page_preview=True,
 # Edit Yang Perlu Lu ganti 
 # Tapi Jangan di Hapus Thanks To nya Yaaa :D
 
