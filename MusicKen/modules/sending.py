@@ -4,7 +4,7 @@ from asyncio import subprocess as asyncsub
 from time import gmtime, strftime
 from traceback import format_exc
 
-from telethon import events
+from pyrogram import Client
 
 def register(**args):
     """ Register a new event. """
