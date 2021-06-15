@@ -34,10 +34,10 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-from config import SUPPORT_GROUP as group_chat
-from MusicKen.config import DURATION_LIMIT
+
+from MusicKen.config import SUPPORT_GROUP as group_chat DURATION_LIMIT
 from MusicKen.modules.play import arq
-from subcribe import subscribed
+from MusicKen.subcribe import subscribed
 
 @Client.on_message(filters.command("song") & ~filters.channel & subscribed)
 async def not_joined(client: Client, message: Message):
