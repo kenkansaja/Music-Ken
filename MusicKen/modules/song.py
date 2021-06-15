@@ -43,7 +43,6 @@ from MusicKen.subcribe import subscribed
 async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join Group untuk menggunakan saya\n\nTolong bergabunglah ke Group silahkan join @{group_chat}</b>"
     message_text = message.text
-         return
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
