@@ -34,14 +34,16 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-
+from config import SUPPORT_GROUP as group_chat
 from MusicKen.config import DURATION_LIMIT
 from MusicKen.modules.play import arq
+from subcribe import subscribed
 
-
-@Client.on_message(filters.command("song") & ~filters.channel)
-def song(client, message):
-
+@Client.on_message(filters.command("song") & ~filters.channel & subscribed)
+async def not_joined(client: Client, message: Message):
+    text = "<b>Anda harus join Group untuk menggunakan saya\n\nTolong bergabunglah ke Group silahkan join @{group_chat}</b>"
+    message_text = message.text
+         return
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
