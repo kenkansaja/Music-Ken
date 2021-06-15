@@ -34,8 +34,8 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-
-from MusicKen.config import SUPPORT_GROUP as group_chat DURATION_LIMIT
+from MusicKen.config import DURATION_LIMIT
+from MusicKen.config import SUPPORT_GROUP as group_chat 
 from MusicKen.modules.play import arq
 from MusicKen.subcribe import subscribed
 
