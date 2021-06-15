@@ -1,7 +1,7 @@
 import re
 import asyncio
 from pyrogram import filters
-from config import SUPPORT_GROUP, ASSISTANT_NAME
+from MusicKen.config import SUPPORT_GROUP, ASSISTANT_NAME
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 
