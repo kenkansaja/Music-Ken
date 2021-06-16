@@ -1,6 +1,7 @@
 
 import logging
 from MusicKen.modules.msg import Messages as tr
+from subcribe import subcribed
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
@@ -9,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 @Client.on_message(
     filters.command("start")
     & filters.private
-    & ~ filters.edited
+    & ~ filters.edited & subcribed
 )
 async def start_(client: Client, message: Message):
     await message.reply_text( 
@@ -141,7 +142,15 @@ async def help(client: Client, message: Message):
             ]
         ),
     )  
-
+@Client.on_message(filters.command(start) & filters.private)
+async def not_joined(client: Client, message: Message):
+  text = "<b>Anda harus gabung dulu di Group Musikku biar bisa menggunakan fitur bot silahkan klik button gabung</b>"
+  reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("GABUNG", urlclient.invitelink)]])
+  await message.reply(
+    text = text,
+    reply_markup = reply_markup,
+    quote = True,
+    )
 
 @Client.on_message(
     filters.command("reload")
