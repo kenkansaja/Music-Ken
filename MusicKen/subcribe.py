@@ -20,5 +20,28 @@ async def is_subscribed(filter, client, message):
         return False
     else:
         return True
+
+async def get_messages(client, message_ids):
+    messages = []
+    total_messages = 0
+    while total_messages != len(message_ids):
+        temb_ids = message_ids[total_messages:total_messages+200]
+        try:
+            msgs = await client.get_messages(
+                chat_id=client.db_channel.id,
+                message_ids=temb_ids
+            )
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            msgs = await client.get_messages(
+                chat_id=client.db_channel.id,
+                message_ids=temb_ids
+            )
+        except:
+            pass
+        total_messages += len(temb_ids)
+        messages.extend(msgs)
+    return messages
+
         
         subcribed = is_subscribed
