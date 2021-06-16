@@ -1,7 +1,7 @@
 
 import logging
 from MusicKen.modules.msg import Messages as tr
-from subcribe import subcribed
+from MusicKen.subcribe import subcribed
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
