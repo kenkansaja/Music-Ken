@@ -42,6 +42,4 @@ async def get_messages(client, message_ids):
         total_messages += len(temb_ids)
         messages.extend(msgs)
     return messages
-
-        
-        subcribed = filters.create(is_subscribed)
+subcribed = filters.create(is_subscribed)
