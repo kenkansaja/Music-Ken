@@ -8,10 +8,7 @@ from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROU
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(
-    filters.command("start")
-    & filters.private
-    & ~ filters.edited & subcribed
-)
+    filters.command("start") & filters.private & ~ filters.edited & subcribed)
 async def start_(client: Client, message: Message):
     await message.reply_text( 
         f"""<b>┗┓ Haii {message.from_user.first_name} ┏┛\n\n
@@ -125,10 +122,7 @@ async def start(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("help")
-    & filters.group
-    & ~ filters.edited
-)
+    filters.command("help") & filters.group & ~ filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
         """**Klik Tombol dibawah untuk Melihat Cara Menggunakan Bot**""",
@@ -142,7 +136,7 @@ async def help(client: Client, message: Message):
             ]
         ),
     )  
-@Client.on_message(filters.command(start) & filters.private)
+@Client.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
   text = "<b>Anda harus gabung dulu di Group Musikku biar bisa menggunakan fitur bot silahkan klik button gabung</b>"
   reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("GABUNG", urlclient.invitelink)]])
