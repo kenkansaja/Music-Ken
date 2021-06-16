@@ -7,8 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
 logging.basicConfig(level=logging.INFO)
 
-@Client.on_message(
-    filters.command("start") & filters.private & ~ filters.edited & subcribed)
+@Client.on_message(filters.command("start") & filters.private & ~ filters.edited & subcribed)
 async def start_(client: Client, message: Message):
     await message.reply_text( 
         f"""<b>┗┓ Haii {message.from_user.first_name} ┏┛\n\n
