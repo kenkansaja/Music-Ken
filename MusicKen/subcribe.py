@@ -44,4 +44,4 @@ async def get_messages(client, message_ids):
     return messages
 
         
-        subcribed = is_subscribed
+        subcribed = filters.create(is_subscribed)
