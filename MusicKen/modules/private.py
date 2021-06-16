@@ -97,11 +97,7 @@ def map(pos):
     return button
 
 
-@Client.on_message(
-    filters.command("start")
-    & filters.group
-    & ~ filters.edited
-)
+@Client.on_message(filters.command("start") & filters.group & ~ filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_text(
         "💁🏻‍♂️ **Apakah Anda ingin mencari Link YouTube?**",
@@ -145,11 +141,7 @@ async def not_joined(client: Client, message: Message):
     quote = True,
     )
 
-@Client.on_message(
-    filters.command("reload")
-    & filters.group
-    & ~ filters.edited
-)
+@Client.on_message(filters.command("reload") & filters.group & ~ filters.edited)
 async def reload(client: Client, message: Message):
     await message.reply_text("""✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**""",
       reply_markup=InlineKeyboardMarkup(
