@@ -20,6 +20,4 @@ async def is_subscribed(filter, client, message):
         return False
     else:
         return True
-
-
-subscribed = filters.create(is_subscribed)
+    subscribed = filters.create(is_subscribed)
