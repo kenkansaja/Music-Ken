@@ -408,7 +408,7 @@ async def play(_, message: Message):
                     await lel.edit(
                         "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
                     )
-                
+                    try:
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
