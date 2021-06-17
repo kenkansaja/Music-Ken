@@ -410,7 +410,7 @@ async def play(_, message: Message):
                     )
                     pass
                 try:
-                    
+                    invitlink = USER
                 except:
                     await lel.edit(
                         "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
