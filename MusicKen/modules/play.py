@@ -409,10 +409,6 @@ async def play(_, message: Message):
                         "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
                     )
                     try:
-                except UserAlreadyParticipant:
-                    pass
-                except Exception:
-                    # print(e)
                     await lel.edit(
                         f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
                         "\n\nAtau tambahkan Assistant Bot secara manual ke Grup Anda dan coba lagi</b>",
