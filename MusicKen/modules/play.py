@@ -145,7 +145,7 @@ async def playlist(client, message):
 # ============================= Settings =========================================
 
 
-def updated_stats(chat, queue, vol=150):
+def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.pytgcalls.active_calls:
         # if chat.id in active_chats:
         stats = "Pengaturan dari **{}**".format(chat.title)
@@ -404,7 +404,29 @@ async def play(_, message: Message):
     except:
         for administrator in administrators:
             if administrator == message.from_user.id:
-                if message.chat.title.startswith("Channel Music: ")
+                if message.chat.title.startswith("Channel Music: "):
+                    await lel.edit(
+                        "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
+                    )
+                    pass
+                try:
+                    invitelink = await _.export_chat_invite_link(chid)
+                except:
+                    await lel.edit(
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+                    )
+                    return
+
+                try:
+                    await USER.join_chat(invitelink)
+                    await lel.edit(
+                        "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
+                    )
+
+                except UserAlreadyParticipant:
+                    pass
+                except Exception:
+                    # print(e)
                     await lel.edit(
                         f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
                         "\n\nAtau tambahkan Assistant Bot secara manual ke Grup Anda dan coba lagi</b>",
