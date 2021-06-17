@@ -408,18 +408,7 @@ async def play(_, message: Message):
                     await lel.edit(
                         "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
                     )
-                except:
-                    await lel.edit(
-                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
-                    )
-                    return
-
-                try:
-                    await USER.join_chat(invitelink)
-                    await lel.edit(
-                        "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
-                    )
-
+                
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
