@@ -404,11 +404,7 @@ async def play(_, message: Message):
     except:
         for administrator in administrators:
             if administrator == message.from_user.id:
-                if message.chat.title.startswith("Channel Music: "):
-                    await lel.edit(
-                        "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
-                    )
-                    try:
+                if message.chat.title.startswith("Channel Music: ")
                     await lel.edit(
                         f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
                         "\n\nAtau tambahkan Assistant Bot secara manual ke Grup Anda dan coba lagi</b>",
