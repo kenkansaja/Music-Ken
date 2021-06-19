@@ -22,6 +22,13 @@
 - Control with buttons
 - Userbot auto join
 - Channel Music Play
+## TELEGRAM
+
+<b>OWNER [KEN KAN](https://t.me/kenkanasw)</b>
+
+<b>GROUP MUSIKKU [@musikkugroup](https://t.me/mausikkugroup)</b>
+
+<b>CHANNEL MUSIKKU [@musikkuchannel](https://t.me/musikkuchannel)</b>
 
 <b>TEMUKAN DI TELEGRAM [@Musiksayabot](https://t.me/Musiksayabot)</b>
 
