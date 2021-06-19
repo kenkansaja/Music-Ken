@@ -26,7 +26,8 @@
 
 <b>OWNER [KEN KAN](https://t.me/kenkanasw)</b>
 
-<b>GROUP MUSIKKU [@musikkugroup](https://t.me/mausikkugroup)</b>
+<b>GROUP MUSIKKU
+[@musikkugroup](https://t.me/mausikkugroup)</b>
 
 <b>CHANNEL MUSIKKU [@musikkuchannel](https://t.me/musikkuchannel)</b>
 
