@@ -1,6 +1,7 @@
 {
   "name": "Music Ken",
-  "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
+  "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by MUSIK KU.",
+  "logo": "https://telegra.ph/file/b0abf1b9bec33146e4288.jpg",
   "keywords": ["music", "voicechat", "telegram"],
   "repository": "https://github.com/kenkannih/Music-Ken",
   "stack": "container",
@@ -52,14 +53,14 @@
     "BG_IMAGE": {
       "description": "Custom Background Play Musik Gunakan Foto yang Transparant format .png / .jpg",
       "required": false,
-      "value": "https://telegra.ph/file/32203e0221c490fc65857.png"
+      "value": "https://telegra.ph/file/aafce7ef46a06e70f08b8.png"
     },        
     "API_ID": {
-      "description": "Masukan APP ID Silahkan Ambil dari my.telegram.org/apps atau t.me/scrapmanbot",
+      "description": "Masukan APP ID Silahkan Ambil dari my.telegram.org/apps atau @Kenkanrobot",
       "required": true
     },   
     "API_HASH": {
-      "description": "Masukan API HASH Silahkan Ambil dari my.telegram.org/apps atau t.me/scrapmanbot",
+      "description": "Masukan API HASH Silahkan Ambil dari my.telegram.org/apps atau @Kenkanrobot",
       "required": true
     },
     "PMPERMIT": {
@@ -74,7 +75,7 @@
     "DURATION_LIMIT": {
       "description": "Batas durasi audio maksimal untuk download (minutes).",
       "required": true,
-      "value": "30"
+      "value": "300"
     }
   }
 }
