@@ -11,6 +11,7 @@ from MusicKen.services.callsmusic import callsmusic
 
 
 @Client.on_message(filters.command("adminreset"))
+@authorized_users_only
 async def update_admin(client, message: Message):
     chat_id = get_chat_id(message.chat)
     set(
@@ -24,6 +25,7 @@ async def update_admin(client, message: Message):
 
 
 @Client.on_message(command("pause") & other_filters)
+@authorized_users_only
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
@@ -36,6 +38,7 @@ async def pause(_, message: Message):
 
 
 @Client.on_message(command("resume") & other_filters)
+@authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
@@ -48,6 +51,7 @@ async def resume(_, message: Message):
 
 
 @Client.on_message(command("end") & other_filters)
+@authorized_users_only
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
@@ -82,6 +86,7 @@ async def skip(_, message: Message):
 
 
 @Client.on_message(filters.command("admincache"))
+@authorized_users_only
 async def admincache(client, message: Message):
     set(
         message.chat.id,
