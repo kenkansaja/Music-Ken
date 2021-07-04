@@ -8,7 +8,7 @@
   <b>🎶 MUSIK KEN</b>
 </h1>
 
-![Profile views](https://komarev.com/ghpvc/?username=kenkannih&repo=Music-Ken&color=green&style=flat-square&label=Profile+Views)
+![Repo 👁‍🗨](https://komarev.com/ghpvc/?username=kenkannih&color=red&style=flat-square&label=DILIHAT+👁‍🗨)
 
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
