@@ -1,1 +1,3 @@
-from MusicKen.services.downloaders.youtube import download
+from MusicKen.services.downloaders import youtube
+
+__all__ = ["youtube"]
