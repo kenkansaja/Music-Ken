@@ -15,13 +15,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from pyrogram import Client
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 import asyncio
-from MusicKen.helpers.decorators import authorized_users_only
-from MusicKen.helpers.decorators import errors
-from MusicKen.services.callsmusic import client as USER
+from MusicKen.helpers.decorators import authorized_users_only, errors
+from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.config import SUDO_USERS
 
 @Client.on_message(filters.command(["userbotjoin"]) & ~filters.private & ~filters.bot)
@@ -74,22 +72,20 @@ async def rem(USER, message):
     
 @Client.on_message(filters.command(["userbotleaveall"]))
 async def bye(client, message):
-    if message.from_user.id not in SUDO_USERS:
-        return
-
-    left=0
-    failed=0
-    lol = await message.reply("Assistant Leaving all chats")
-    async for dialog in USER.iter_dialogs():
-        try:
-            await USER.leave_chat(dialog.chat.id)
-            left += 1
-            await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
-        except:
-            failed += 1
-            await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
-        await asyncio.sleep(0.7)
-    await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
+    if message.from_user.id in SUDO_USERS:
+        left=0
+        failed=0
+        lol = await message.reply("**Asisten Meninggalkan semua obrolan**")
+        async for dialog in USER.iter_dialogs():
+            try:
+                await USER.leave_chat(dialog.chat.id)
+                left = left+1
+                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
+            except:
+                failed=failed+1
+                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
+            await asyncio.sleep(0.7)
+        await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
     
     
 @Client.on_message(filters.command(["userbotjoinchannel","ubjoinc"]) & ~filters.private & ~filters.bot)
@@ -101,14 +97,14 @@ async def addcchannel(client, message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Apakah obrolan terhubung?")
       return    
     chat_id = chid
     try:
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+            "<b>Tambahkan saya sebagai admin saluran Anda terlebih dahulu</b>",
         )
         return
 
@@ -121,7 +117,7 @@ async def addcchannel(client, message):
         await USER.join_chat(invitelink)
     except UserAlreadyParticipant:
         await message.reply_text(
-            f"<b>{user.first_name} sudah ada di obrolan Anda</b>",
+            f"<b>{user.first_name} sudah ada di channel anda</b>",
         )
         return
     except Exception as e:
@@ -132,7 +128,6 @@ async def addcchannel(client, message):
         )
         return
     await message.reply_text(
-        f"<b>{user.first_name} berhasil bergabung dengan obrolan Anda</b>",
+        f"<b>{user.first_name} sudah bergabung dengan obrolan Anda</b>",
     )
-
     
