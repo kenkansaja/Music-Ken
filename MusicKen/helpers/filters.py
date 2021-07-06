@@ -15,7 +15,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from typing import List, Union
+from typing import List
+from typing import Union
 
 from pyrogram import filters
 
