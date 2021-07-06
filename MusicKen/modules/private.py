@@ -121,4 +121,24 @@ async def ghelp(_, message: Message):
         ),
     )
 
+@Client.on_message(
+    filters.command("reload")
+    & filters.group
+    & ~ filters.edited
+)
+async def reload(client: Client, message: Message):
+    await message.reply_text("""✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**""",
+      reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"
+                    ),
+                    InlineKeyboardButton(
+                        "OWNER 👮", url=f"https://t.me/kenkanasw"
+                    )
+                ]
+            ]
+        )
+   )
 
