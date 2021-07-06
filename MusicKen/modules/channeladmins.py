@@ -16,87 +16,77 @@
 
 
 from asyncio import QueueEmpty
-from pyrogram import Client 
+from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Message
-from pyrogram.types import InlineKeyboardButton
-from pyrogram.types import InlineKeyboardMarkup
 
 from MusicKen.config import que
 from MusicKen.function.admins import set
 from MusicKen.helpers.channelmusic import get_chat_id
 from MusicKen.helpers.decorators import authorized_users_only
 from MusicKen.helpers.decorators import errors
-from MusicKen.helpers.filters import command
+from MusicKen.helpers.filters import command 
 from MusicKen.helpers.filters import other_filters
 from MusicKen.services.callsmusic import callsmusic
 from MusicKen.services.queues import queues
 
 
-@Client.on_message(filters.command("reload"))
-async def update_admin(client, message: Message):
-    chat_id = get_chat_id(message.chat)
-    set(
-        chat_id,
-        (
-            member.user
-            for member in await message.chat.get_members(
-                filter="administrators"
-            )
-        ),
-    )
-
-    await message.reply_text("✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Group Support", url="https://t.me/SharingUserbot"
-                    ),
-                    InlineKeyboardButton(
-                        "Owner", url="https://t.me/mrismanaziz"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_message(command("pause") & other_filters)
+@Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
-    chat_id = get_chat_id(message.chat)
+    try:
+      conchat = await _.get_chat(message.chat.id)
+      conid = conchat.linked_chat.id
+      chid = conid
+    except:
+      await message.reply("Is chat even linked")
+      return    
+    chat_id = chid
     if (chat_id not in callsmusic.active_chats) or (
         callsmusic.active_chats[chat_id] == "paused"
     ):
-        await message.reply_text("❗ **Tidak ada Lagu yang sedang diputar!**")
+        await message.reply_text("❗ Nothing is playing!")
     else:
         callsmusic.pause(chat_id)
-        await message.reply_text("▶️ **Paused!**")
+        await message.reply_text("▶️ Paused!")
 
 
-@Client.on_message(command("resume") & other_filters)
+@Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.edited)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
-    chat_id = get_chat_id(message.chat)
+    try:
+      conchat = await _.get_chat(message.chat.id)
+      conid = conchat.linked_chat.id
+      chid = conid
+    except:
+      await message.reply("Is chat even linked")
+      return    
+    chat_id = chid
     if (chat_id not in callsmusic.active_chats) or (
         callsmusic.active_chats[chat_id] == "playing"
     ):
-        await message.reply_text("❗ **Tidak ada Lagu yang sedang dijeda!**")
+        await message.reply_text("❗ Nothing is paused!")
     else:
         callsmusic.resume(chat_id)
-        await message.reply_text("⏸ **Resumed!**")
+        await message.reply_text("⏸ Resumed!")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.edited)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
-    chat_id = get_chat_id(message.chat)
+    try:
+      conchat = await _.get_chat(message.chat.id)
+      conid = conchat.linked_chat.id
+      chid = conid
+    except:
+      await message.reply("Is chat even linked")
+      return    
+    chat_id = chid
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text("❗ **Tidak ada Lagu yang sedang diputar!**")
+        await message.reply_text("❗ Nothing is streaming!")
     else:
         try:
             queues.clear(chat_id)
@@ -104,19 +94,27 @@ async def stop(_, message: Message):
             pass
 
         await callsmusic.stop(chat_id)
-        await message.reply_text("❌ **Memberhentikan Lagu!**")
+        await message.reply_text("❌ Stopped streaming!")
 
 
-@Client.on_message(command("skip") & other_filters)
+@Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
 @errors
 @authorized_users_only
 async def skip(_, message: Message):
     global que
-    chat_id = get_chat_id(message.chat)
+    try:
+      conchat = await _.get_chat(message.chat.id)
+      conid = conchat.linked_chat.id
+      chid = conid
+    except:
+      await message.reply("Is chat even linked")
+      return    
+    chat_id = chid
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text("❗ **Tidak ada Lagu Selanjutnya untuk dilewati!**")
+        await message.reply_text("❗ Nothing is playing to skip!")
     else:
         queues.task_done(chat_id)
+
         if queues.is_empty(chat_id):
             await callsmusic.stop(chat_id)
         else:
@@ -130,20 +128,27 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"- Melewati Lagu **{skip[0]}**\n- Sekarang Memutar Lagu **{qeue[0][0]}**")
+    await message.reply_text(f"- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**")
 
 
-@Client.on_message(filters.command("admincache"))
+@Client.on_message(filters.command("channeladmincache"))
 @errors
 async def admincache(client, message: Message):
+    try:
+      conchat = await client.get_chat(message.chat.id)
+      conid = conchat.linked_chat.id
+      chid = conid
+    except:
+      await message.reply("Is chat even linked")
+      return
     set(
-        message.chat.id,
+        chid,
         (
             member.user
-            for member in await message.chat.get_members(
+            for member in await conchat.linked_chat.get_members(
                 filter="administrators"
             )
         ),
     )
 
-    await message.reply_text("✅️ **Daftar admin** telah **diperbarui**")
+    await message.reply_text("❇️ Admin cache refreshed!")
