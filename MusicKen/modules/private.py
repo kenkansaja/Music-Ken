@@ -36,8 +36,7 @@ Dikekolah oleh {OWNER}
                     InlineKeyboardButton(
                         "👥 ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_GROUP}"), 
                     InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ 📣", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                   [InlineKeyboardButton("🖇ɢɪᴛ ʜᴜʙ", url=f"{SOURCE_CODE}")]
+                        "ᴄʜᴀɴɴᴇʟ 📣", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ]
             ]
         ),
