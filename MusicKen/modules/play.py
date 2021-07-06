@@ -40,7 +40,7 @@ from MusicKen.services.callsmusic import callsmusic
 from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
 from MusicKen.services.downloaders import youtube
-from MusicKen.services.queues import queues
+from MusicKen.services.callsmusic.queues.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
