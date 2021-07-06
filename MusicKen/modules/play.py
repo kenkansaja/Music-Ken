@@ -37,7 +37,7 @@ from MusicKen.helpers.filters import command
 from MusicKen.helpers.filters import other_filters
 from MusicKen.helpers.gets import get_file_name
 from MusicKen.services.callsmusic import callsmusic
-from MusicKen.services.callsmusic import client as USER
+from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
 from MusicKen.services.downloaders import youtube
 from MusicKen.services.queues import queues
