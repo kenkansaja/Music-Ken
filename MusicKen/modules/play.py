@@ -219,9 +219,7 @@ async def p_cb(b, cb):
         await cb.message.edit(msg)
 
 
-@Client.on_callback_query(
-    filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
-)
+@Client.on_callback_query(filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$"))
 @cb_admin_check
 async def m_cb(b, cb):
     global que
@@ -545,7 +543,6 @@ async def play(_, message: Message):
             caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
             reply_markup=keyboard,
         )
-        os.remove("final.png")
         return await lel.delete()
     else:
         chat_id = get_chat_id(message.chat)
