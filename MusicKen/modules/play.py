@@ -342,7 +342,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command("play", "yplay") & other_filters)
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
@@ -564,9 +564,9 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            reply_markup=keyboard,
             caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                                + f"🎼 **Request Dari:** {message.from_user.mention}"
+                                            + f"🎼 **Request Dari:** {message.from_user.mention}",
+                                           reply_markup=keyboard
         )
         os.remove("final.png")
         return await lel.delete()
