@@ -58,10 +58,6 @@ $ python(3) -m MusicKen
 ### =>> Memutar Lagu 🎧
 
 - /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-- /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube tanpa pilihan
-
-### =>> Pemutaran ⏯
-
 - /player: Buka menu Pengaturan pemain
 - /skip: Melewati trek saat ini
 - /pause: Jeda trek
