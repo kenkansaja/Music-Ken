@@ -38,7 +38,7 @@ aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
 
-useer ="Musik"
+useer ="MusicKen"
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
         admemes = a.get(cb.message.chat.id)
@@ -570,11 +570,7 @@ async def play(_, message: Message):
         )
         os.remove("final.png")
         
-@Client.on_message(
-    filters.command("dplay")
-    & filters.group
-    & ~ filters.edited
-)
+@Client.on_message(filters.command("dplay") & filters.group & ~ filters.edited)
 @authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
@@ -584,7 +580,7 @@ async def deezer(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "MusicKen"
+        user.first_name = "MusicKen"
     usar = user
     wew = usar.id
     try:
@@ -702,11 +698,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 
 
-@Client.on_message(
-    filters.command("splay")
-    & filters.group
-    & ~ filters.edited
-)
+@Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
@@ -716,7 +708,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "MusicKen"
+        user.first_name = "MusicKen"
     usar = user
     wew = usar.id
     try:
