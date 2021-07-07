@@ -14,19 +14,7 @@
 ### A bot that can play music on Telegram Group and Channel Voice Chats
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
 
-<h2> Whats new 🔥 </h2>
 
-- This bot musik player language has been edited from English to Indonesian
-- Thumbnail Support
-- Playlist Support
-- Current playback support
-- Showing track names when skipping
-- Zero downtime, Fully Stable
-- DEEZER,YOUTUBE & SAAVN PLAYBACK SUPPORTED
-- Settings panel
-- Control with buttons
-- Userbot auto join
-- Channel Music Play
 ## TELEGRAM
 
 <b>OWNER [KEN KAN](https://t.me/kenkanasw)</b>
@@ -70,8 +58,6 @@ $ python(3) -m MusicKen
 ### =>> Memutar Lagu 🎧
 
 - /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-- /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
-- /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
 - /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube tanpa pilihan
 
 ### =>> Pemutaran ⏯
@@ -86,15 +72,8 @@ $ python(3) -m MusicKen
 
 ### =>> Download Lagu 📥
 
-- /vsong [nama lagu]: Download video lagu dari youtube
 - /song [nama lagu]: Unduh audio lagu dari youtube
-- /saavn [nama lagu]: Unduh lagu dari saavn
-- /deezer [nama lagu]: Unduh lagu dari deezer
 
-### =>> Alat Pencarian 🔍
-
-- /search [nama lagu]: Cari youtube untuk lagu
-- /lyrics [nama lagu]: Dapatkan lirik lagu
 
 Semua Perintah Bisa Digunakan Kecuali Perintah `/player /skip /pause /resume /end` Hanya Untuk Admin Grup
 
