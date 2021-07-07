@@ -49,7 +49,31 @@ f"""
 
 • /song [nama lagu]: Unduh audio lagu dari youtube
 """ ,
+f"""
+**=>> Saluran Music Play 🛠**
 
+⚪️ Hanya untuk admin grup tertaut:
+
+• /cplay (nama lagu) - putar lagu yang Anda minta
+• /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
+• /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
+• /cplaylist - Tampilkan daftar yang sedang diputar
+• /cccurrent - Tampilkan sedang diputar
+• /cplayer - buka panel pengaturan pemutar musik
+• /cpause - jeda pemutaran lagu
+• /cresume - melanjutkan pemutaran lagu
+• /cskip - putar lagu berikutnya
+• /cend - hentikan pemutaran musik
+• /userbotjoinchannel - undang asisten ke obrolan Anda
+
+⚪️ Jika Anda Tidak Suka Bermain Di Grup Tertaut:
+
+1) Dapatkan ID Saluran Anda.
+2) Buat Grup Dengan Judul: Channel Music: ID_SALURAN_ANDA
+3) Tambahkan Bot Sebagai Admin Saluran Dengan Izin Penuh
+4) Tambahkan @{ASSISTANT_NAME} Ke Saluran Sebagai admin.
+5) Cukup Kirim Perintah Di Grup Anda
+""",
 f"""
 **=>> Lebih Banyak Alat 🧑‍🔧**
 
