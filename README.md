@@ -58,6 +58,8 @@ $ python(3) -m MusicKen
 ### =>> Memutar Lagu 🎧
 
 - /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+- /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
+- /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
 - /player: Buka menu Pengaturan pemain
 - /skip: Melewati trek saat ini
 - /pause: Jeda trek
