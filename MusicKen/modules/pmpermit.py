@@ -1,7 +1,7 @@
 
 from pyrogram import Client
 import asyncio
-from MusicKen.config import SUDO_USERS, PMPERMIT, OWNER, PROJECT_NAME, UPDATES_CHANNEL, SUPPORT_GROUP
+from MusicKen.config import SUDO_USERS, PMPERMIT, OWNER, PROJECT_NAME, UPDATES_CHANNEL, SUPPORT_GROUP, BOT_USERNAME
 from pyrogram import filters
 from pyrogram.types import Message
 from MusicKen.services.callsmusic.callsmusic import client as USER
