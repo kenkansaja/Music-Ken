@@ -1,4 +1,3 @@
-
 import json
 import os
 from os import path
@@ -570,7 +569,7 @@ async def play(_, message: Message):
             ),
         )
         os.remove("final.png")
-        return await lel.delete()
+        
 @Client.on_message(
     filters.command("dplay")
     & filters.group
