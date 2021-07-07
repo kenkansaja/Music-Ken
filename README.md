@@ -59,6 +59,9 @@ $ python(3) -m MusicKen
 
 - /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
+- /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+- /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+- /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
 - /player: Buka menu Pengaturan pemain
 - /skip: Melewati trek saat ini
@@ -72,6 +75,21 @@ $ python(3) -m MusicKen
 
 - /song [nama lagu]: Unduh audio lagu dari youtube
 
+### =>> Saluran Music Play 🛠
+
+⚪️ Hanya untuk admin grup tertaut:
+
+- /cplay (nama lagu) - putar lagu yang Anda minta
+- /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
+- /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
+- /cplaylist - Tampilkan daftar yang sedang diputar
+- /cccurrent - Tampilkan sedang diputar
+- /cplayer - buka panel pengaturan pemutar musik
+- /cpause - jeda pemutaran lagu
+- /cresume - melanjutkan pemutaran lagu
+- /cskip - putar lagu berikutnya
+- /cend - hentikan pemutaran musik
+- /userbotjoinchannel - undang asisten ke obrolan Anda
 
 Semua Perintah Bisa Digunakan Kecuali Perintah `/player /skip /pause /resume /end` Hanya Untuk Admin Grup
 
