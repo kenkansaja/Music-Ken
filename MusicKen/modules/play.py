@@ -1,3 +1,4 @@
+
 import json
 import os
 from os import path
@@ -434,7 +435,7 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
             ]
@@ -542,9 +543,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                                + f"🎼 **Request Dari:** {message.from_user.mention}",
-                               reply_markup=keyboard
+            caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
+            reply_markup=keyboard,
         )
         os.remove("final.png")
         return await lel.delete()
@@ -564,9 +564,10 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                                            + f"🎼 **Request Dari:** {message.from_user.mention}",
-                                           reply_markup=keyboard
+            reply_markup=keyboard,
+            caption="🎼️ **Sedang Memutar Lagu Permintaan dari** {}".format(
+                message.from_user.mention()
+            ),
         )
         os.remove("final.png")
         return await lel.delete()
