@@ -651,10 +651,15 @@ async def deezer(client: Client, message_: Message):
         pass    
     
     keyboard = InlineKeyboardMarkup(
-        [
-            [InlineKeyboardButton(text="💌CHANNEL", url=f"https://t.me/{updateschannel}")],
-        ]
-    )
+            [
+                [
+                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                ],
+                [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+            ]
+        )
     file_path = await convert(wget.download(url))
     await res.edit("📥 **Generating Thumbnail**")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
@@ -770,27 +775,16 @@ async def jiosaavn(client: Client, message_: Message):
         print(str(e))
         is_playing = False
         return
-    keyboard = InlineKeyboardMarkup(
-            [   
+        keyboard = InlineKeyboardMarkup(
+            [
                 [
-                               
-                    InlineKeyboardButton('📖 Daftar Putar', callback_data='playlist'),
-                    InlineKeyboardButton("💬 GROUP", url=f"t.me/{SUPPORT_GROUP}")
-                
-                ],                     
-                [
-                    InlineKeyboardButton(
-                       "💌 CHANNEL", url=f"t.me/{updateschannel}"
-                    )
+                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
                 ],
-                [       
-                    InlineKeyboardButton(
-                        text="🗑 ᴛᴜᴛᴜᴘ",
-                        callback_data='cls')
-
-                ]                             
+                [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
-     )
+        )
     file_path= await converter.convert(wget.download(slink))
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message_.chat.id, file=file_path)
