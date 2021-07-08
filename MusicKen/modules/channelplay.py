@@ -50,12 +50,12 @@ async def playlist(client, message):
       lel = await client.get_chat(message.chat.id)
       lol = lel.linked_chat.id
     except:
-      message.reply("Is this cat even linked?")
+      message.reply("Apakah channel ini terhubung?")
       return
     global que
     queue = que.get(lol)
     if not queue:
-        await message.reply_text("Player is idle")
+        await message.reply_text("Assistant telah siap")
     temp = [t for t in queue]
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
@@ -116,15 +116,14 @@ async def ee(client, message):
       lol = lel.linked_chat.id
       conv = lel.linked_chat
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Apakah obrolan ini terhubung")
       return
     queue = que.get(lol)
     stats = updated_stats(conv, queue)
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("No VC instances running in this chat")
-
+        await message.reply("Tidak ada instance VCG yang berjalan dalam obrolan ini")
 
 @Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.edited)
 @authorized_users_only
@@ -134,7 +133,7 @@ async def settings(client, message):
       lol = lel.linked_chat.id
       conv = lel.linked_chat
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Apakah obrolan ini terhubung")
       return
     queue = que.get(lol)
     stats = updated_stats(conv, queue)
@@ -146,7 +145,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Tidak ada instance VCG yang berjalan dalam obrolan ini")
 
 
 @Client.on_callback_query(filters.regex(pattern=r"^(cplaylist)$"))
@@ -215,7 +214,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("Obrolan tidak terhubung!", show_alert=True)
         else:
             callsmusic.pytgcalls.pause_stream(chet_id)
 
@@ -228,7 +227,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("Obrolan tidak terhubung!", show_alert=True)
         else:
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
@@ -261,7 +260,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
+            await cb.answer("Obrolan tidak tersambung atau sudah diputar", show_alert=True)
         else:
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
@@ -269,7 +268,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected or already paused", show_alert=True)
+            await cb.answer("Obrolan tidak tersambung atau sudah dijeda", show_alert=True)
         else:
             callsmusic.pytgcalls.pause_stream(chet_id)
 
@@ -300,14 +299,14 @@ async def m_cb(b, cb):
         if qeue:
             qeue.pop(0)
         if chet_id not in callsmusic.pytgcalls.active_calls:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("Obrolan tidak terhubung", show_alert=True)
         else:
             callsmusic.queues.task_done(chet_id)
 
             if callsmusic.queues.is_empty(chet_id):
                 callsmusic.pytgcalls.leave_group_call(chet_id)
 
-                await cb.message.edit("- No More Playlist..\n- Leaving VC!")
+                await cb.message.edit("Tidak Ada Lagi Daftar Putar..\n- Meninggalkan VCG!")
             else:
                 callsmusic.pytgcalls.change_stream(
                     chet_id, callsmusic.queues.get(chet_id)["file"]
@@ -325,9 +324,9 @@ async def m_cb(b, cb):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chet_id)
-        await cb.message.edit("Successfully Left the Chat!")
+        await cb.message.edit("Berhasil Meninggalkan Obrolan!")
     else:
-        await cb.answer("Chat is not connected!", show_alert=True)
+        await cb.answer("Obrolan tidak terhubung!", show_alert=True)
 
 
 @Client.on_message(filters.command(["channelplay","cplay"])  & filters.group & ~filters.edited)
@@ -342,12 +341,12 @@ async def play(_, message: Message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Apakah obrolan ini terhubung")
       return
     try:
       administrators = await get_administrators(conv)
     except:
-      await message.reply("Am I admin of Channel")
+      await message.reply("Apakah saya admin di channel")
     try:
         user = await USER.get_me()
     except:
@@ -362,20 +361,20 @@ async def play(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        f"<b>Ingatlah untuk menambahkan @{ASSISTANT_NAME} di channel anda!</b>",
                     )
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor channel  first</b>",
+                        "<b>Jadikan saya admin di channel anda!</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await lel.edit(
-                        "<b>helper userbot joined your channel</b>",
+                        "<b>Assistant sudah bergabung di channel anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -383,15 +382,15 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan Channel Anda karena banyaknya permintaan untuk userbot! Pastikan pengguna tidak diblokir dalam channel."
+                        "\n\nAtau tambahkan asisten ke Channel Anda secara manual dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask channel admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> {user.first_name} Userbot tidak ada dalam obrolan ini, Minta admin Channel untuk mengirim perintah /play untuk pertama kalinya atau menambahkan {user.first_name} secara manual</i>"
         )
         return
     message.from_user.id
@@ -426,9 +425,7 @@ async def play(_, message: Message):
     )
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
-            raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
-            )
+            raise DurationLimitError(f"❌ Video yang berdurasi lebih dari {DURATION_LIMIT} menit tidak boleh diputar!")
         keyboard = InlineKeyboardMarkup(
             [
                 [
@@ -508,7 +505,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "Song not found.Try another song or maybe spell it properly."
+                "Lagu tidak ditemukan. Coba lagu lain atau mungkin anda salah mengejanya."
             )
             print(str(e))
             return
@@ -576,12 +573,12 @@ async def deezer(client: Client, message_: Message):
       conv = conchat.linked_chat
       chid = conid
     except:
-      await message_.reply("Is chat even linked")
+      await message_.reply("Apakah obrolan ini terhubung")
       return
     try:
       administrators = await get_administrators(conv)
     except:
-      await message.reply("Am I admin of Channel")
+      await message.reply("Jadikan saya admin di Channel")
     try:
         user = await USER.get_me()
     except:
@@ -596,20 +593,20 @@ async def deezer(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Ingatlah untuk menambahkan Assistant di Channel Anda</b>",
                     )
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor channel first</b>",
+                        "<b>Jadikan saya Admin di Channel Anda</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await lel.edit(
-                        "<b>helper userbot joined your channel</b>",
+                        "<b>Assistant berhasil bergabung di channel Anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -617,15 +614,15 @@ async def deezer(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in channel."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan Channel Anda karena banyaknya permintaan untuk userbot! Pastikan pengguna tidak diblokir dalam Channel."
+                        "\n\nAtau tambahkan asisten ke Channel Anda secara manual dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this channel, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i>{user.first_name} Userbot tidak ada dalam obrolan ini, Minta admin saluran untuk mengirim perintah /play untuk pertama kalinya atau menambahkan {user.first_name} secara manual</i>"
         )
         return
     requested_by = message_.from_user.first_name
