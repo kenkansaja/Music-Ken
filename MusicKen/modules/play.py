@@ -786,9 +786,9 @@ async def jiosaavn(client: Client, message_: Message):
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message_.chat.id, file=file_path)
         qeue = que.get(message_.chat.id)
-        s_name = sname
-        r_by = message_.from_user
-        loc = file_path
+        s_name = title 
+        r_by = message_.from_user 
+        loc = file_path 
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await res.delete()
@@ -804,8 +804,8 @@ async def jiosaavn(client: Client, message_: Message):
         await res.edit_text("Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
-        qeue = que.get(message_.chat.id)
-        s_name = sname
+        qeue = que.get(message_.chat_id)
+        s_name = title
         r_by = message_.from_user
         loc = file_path
         appendable = [s_name, r_by, loc]
