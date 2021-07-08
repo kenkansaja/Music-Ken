@@ -43,8 +43,7 @@ f"""
 • /playlist: Menampilkan daftar putar
 
 Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
-""",
-f"""
+
 **==>>Download Lagu 📥**
 
 • /song [nama lagu]: Unduh audio lagu dari youtube
