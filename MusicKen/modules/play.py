@@ -435,7 +435,7 @@ async def play(_, message: Message):
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/463d7fc1d98d2da673370.jpg"
+        thumb_name = "https://telegra.ph/file/c9c7e24b03919fa5f8022.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -633,7 +633,7 @@ async def deezer(client: Client, message_: Message):
         url = songs.result[0].url
         artist = songs.result[0].artist
         duration = songs.result[0].duration
-        thumbnail = "https://telegra.ph/file/463d7fc1d98d2da673370.jpg"
+        thumbnail = "https://telegra.ph/file/c9c7e24b03919fa5f8022.jpg"
 
     except:
         await res.edit("**Tidak Ditemukan Lagu Apa Pun!**")
