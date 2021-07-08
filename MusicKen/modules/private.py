@@ -133,45 +133,45 @@ async def reload(client: Client, message: Message):
 async def ghelp(_, message: Message):
     await message.reply_text(
       f"""
-      **🔰 Perintah**
+**🔰 Perintah**
       
-      **=>> Memutar Lagu 🎧**
+**=>> Memutar Lagu 🎧**
       
-      • /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-      • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-      • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-      • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-      • /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
-      • /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
-      • /player: Buka menu Pengaturan pemain
-      • /skip: Melewati trek saat ini
-      • /pause: Jeda trek
-      • /resume: Melanjutkan trek yang dijeda
-      • /end: ​​Menghentikan pemutaran media
-      • /current: Menampilkan trek yang sedang diputar
-      • /playlist: Menampilkan daftar putar
+• /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
+• /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
+• /player: Buka menu Pengaturan pemain
+• /skip: Melewati trek saat ini
+• /pause: Jeda trek
+• /resume: Melanjutkan trek yang dijeda
+• /end: ​​Menghentikan pemutaran media
+• /current: Menampilkan trek yang sedang diputar
+• /playlist: Menampilkan daftar putar
       
-      Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
+Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
       
-      **==>>Download Lagu 📥**
+**==>>Download Lagu 📥**
       
-      • /song [nama lagu]: Unduh audio lagu dari youtube
+• /song [nama lagu]: Unduh audio lagu dari youtube
 
-      **=>> Saluran Music Play 🛠**
+**=>> Saluran Music Play 🛠**
       
-      ⚪️ Hanya untuk admin grup tertaut:
+⚪️ Hanya untuk admin grup tertaut:
       
-      • /cplay (nama lagu) - putar lagu yang Anda minta
-      • /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
-      • /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
-      • /cplaylist - Tampilkan daftar yang sedang diputar
-      • /cccurrent - Tampilkan sedang diputar
-      • /cplayer - buka panel pengaturan pemutar musik
-      • /cpause - jeda pemutaran lagu
-      • /cresume - melanjutkan pemutaran lagu
-      • /cskip - putar lagu berikutnya
-      • /cend - hentikan pemutaran musik
-      • /userbotjoinchannel - undang asisten ke obrolan Anda""",
+• /cplay (nama lagu) - putar lagu yang Anda minta
+• /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
+• /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
+• /cplaylist - Tampilkan daftar yang sedang diputar
+• /cccurrent - Tampilkan sedang diputar
+• /cplayer - buka panel pengaturan pemutar musik
+• /cpause - jeda pemutaran lagu
+• /cresume - melanjutkan pemutaran lagu
+• /cskip - putar lagu berikutnya
+• /cend - hentikan pemutaran musik
+• /userbotjoinchannel - undang asisten ke obrolan Anda""",
       reply_markup=InlineKeyboardMarkup(
                   [
                     [InlineKeyboardButton(text = '✅ ᴏᴡɴᴇʀ', url = f"t.me/{OWNER}"),
