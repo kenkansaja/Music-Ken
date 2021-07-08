@@ -793,12 +793,11 @@ async def jiosaavn(client: Client, message_: Message):
         await res.delete()
         m = await client.send_photo(
             chat_id=message_.chat.id,
-            reply_markup=keyboard,
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}",
-                   reply_markup=keyboard,
-        )           
+            reply_markup=keyboard,
+            caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎼 **Request Dari:** {r_by.mention}"  
+        )
            
     else:
         await res.edit_text("Playing.....")
@@ -817,10 +816,10 @@ async def jiosaavn(client: Client, message_: Message):
     m = await client.send_photo(
         chat_id=message_.chat.id,
         photo="final.png",
-        caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}",
-                   reply_markup=keyboard,
-    )
+        reply_markup=keyboard,
+        caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎼 **Request Dari:** {s_name.mention}"  
+        )
 
     os.remove("final.png")
 
