@@ -77,5 +77,17 @@ f"""
 
 - /admincache: Memperbarui Info Admin Grup Anda. Coba Jika Bot Tidak Mengenali Admin
 - /userbotjoin: Undang @{ASSISTANT_NAME} Userbot Ke Grup Anda
+""",
+f"""👋🏻 Hallo, Nama saya [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
+Dikekolah oleh {OWNER}
+┈───────────────────┈
+☑️ Saya memiliki banyak fitur untuk anda yang suka lagu
+🔘 Memutar lagu di group 
+🔘 Mendownload lagu
+🔘 Mendownload video
+🔘 Mencari link youtube
+🔘 Mencari lirik lagu
+┈───────────────────┈
+☑️ Klik tombol bantuan untuk informasi lebih lanjut
 """
 ]
