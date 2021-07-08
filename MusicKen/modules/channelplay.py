@@ -772,7 +772,7 @@ async def jiosaavn(client: Client, message_: Message):
         sthumb = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png"
         sduration = int(songs.result[0].duration)
     except Exception as e:
-        await res.edit(""**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas.")
+        await res.edit("**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas.")
         print(str(e))
         return
     keyboard = InlineKeyboardMarkup(
