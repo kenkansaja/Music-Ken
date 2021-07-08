@@ -2,7 +2,7 @@ import logging
 from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
+from MusicKen.config import SOURCE_CODE, ASSISTANT_NAME, PROJECT_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, BOT_USERNAME, OWNER
 logging.basicConfig(level=logging.INFO)
 
 
@@ -132,10 +132,49 @@ async def reload(client: Client, message: Message):
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-      text=tr.HELP_MSG[2+3+4],
+      f"""
+      **🔰 Perintah**
+      
+      **=>> Memutar Lagu 🎧**
+      
+      • /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+      • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+      • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+      • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+      • /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
+      • /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
+      • /player: Buka menu Pengaturan pemain
+      • /skip: Melewati trek saat ini
+      • /pause: Jeda trek
+      • /resume: Melanjutkan trek yang dijeda
+      • /end: ​​Menghentikan pemutaran media
+      • /current: Menampilkan trek yang sedang diputar
+      • /playlist: Menampilkan daftar putar
+      
+      Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
+      
+      **==>>Download Lagu 📥**
+      
+      • /song [nama lagu]: Unduh audio lagu dari youtube
+
+      **=>> Saluran Music Play 🛠**
+      
+      ⚪️ Hanya untuk admin grup tertaut:
+      
+      • /cplay (nama lagu) - putar lagu yang Anda minta
+      • /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
+      • /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
+      • /cplaylist - Tampilkan daftar yang sedang diputar
+      • /cccurrent - Tampilkan sedang diputar
+      • /cplayer - buka panel pengaturan pemutar musik
+      • /cpause - jeda pemutaran lagu
+      • /cresume - melanjutkan pemutaran lagu
+      • /cskip - putar lagu berikutnya
+      • /cend - hentikan pemutaran musik
+      • /userbotjoinchannel - undang asisten ke obrolan Anda""",
       reply_markup=InlineKeyboardMarkup(
                   [
-                    [InlineKeyboardButton(text = '⚔️ ʙᴀɴᴛᴜᴀɴ', callback_data = f"help+1"),
+                    [InlineKeyboardButton(text = '✅ ᴏᴡɴᴇʀ', url = f"t.me/{OWNER}"),
                      InlineKeyboardButton(text = 'ᴛᴀᴍʙᴀʜᴋᴀɴ ➕', url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                     [InlineKeyboardButton(text = '👥 ɢʀᴏᴜᴘ', url=f"https://t.me/{SUPPORT_GROUP}"),
                      InlineKeyboardButton(text = 'ᴄʜᴀɴɴᴇʟ 📣', url=f"https://t.me/{UPDATES_CHANNEL}")],
