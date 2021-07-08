@@ -108,72 +108,6 @@ def map(pos):
         ]
     return button
 
-@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
-async def ghelp(_, message: Message):
-    await message.reply_text(
-           f"""
-**🔰 Perintah**
-
-**=>> Memutar Lagu 🎧**
-
-• /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-• /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
-• /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
-• /player: Buka menu Pengaturan pemain
-• /skip: Melewati trek saat ini
-• /pause: Jeda trek
-• /resume: Melanjutkan trek yang dijeda
-• /end: ​​Menghentikan pemutaran media
-• /current: Menampilkan trek yang sedang diputar
-• /playlist: Menampilkan daftar putar
-
-Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
-
-**==>>Download Lagu 📥**
-
-• /song [nama lagu]: Unduh audio lagu dari youtube
-
-
-**=>> Saluran Music Play 🛠**
-
-⚪️ Hanya untuk admin grup tertaut:
-
-• /cplay (nama lagu) - putar lagu yang Anda minta
-• /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
-• /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
-• /cplaylist - Tampilkan daftar yang sedang diputar
-• /cccurrent - Tampilkan sedang diputar
-• /cplayer - buka panel pengaturan pemutar musik
-• /cpause - jeda pemutaran lagu
-• /cresume - melanjutkan pemutaran lagu
-• /cskip - putar lagu berikutnya
-• /cend - hentikan pemutaran musik
-• /userbotjoinchannel - undang asisten ke obrolan Anda
-
-⚪️ Jika Anda Tidak Suka Bermain Di Grup Tertaut:
-
-1) Dapatkan ID Saluran Anda.
-2) Buat Grup Dengan Judul: Channel Music: ID_SALURAN_ANDA
-3) Tambahkan Bot Sebagai Admin Saluran Dengan Izin Penuh
-4) Tambahkan @{ASSISTANT_NAME} Ke Saluran Sebagai admin.
-5) Cukup Kirim Perintah Di Grup Anda
-
-**=>> Lebih Banyak Alat 🧑‍🔧**
-
-- /admincache: Memperbarui Info Admin Grup Anda. Coba Jika Bot Tidak Mengenali Admin
-- /userbotjoin: Undang @{ASSISTANT_NAME} Userbot Ke Grup Anda
-""",
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_GROUP}"),
-                    InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ 📣", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ]
-            ]
-        ),
-    )
-
 @Client.on_message(
     filters.command("reload")
     & filters.group
@@ -194,4 +128,16 @@ async def reload(client: Client, message: Message):
             ]
         )
    )
-
+@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
+async def ghelp(_, message: Message):
+    await message.reply_text(
+        text=tr.HELP_MSG[2],
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ 📣", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ]
+            ]
+        ),
+    )
