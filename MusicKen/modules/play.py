@@ -816,7 +816,6 @@ async def jiosaavn(client: Client, message_: Message):
     await res.delete()
     m = await client.send_photo(
         chat_id=message_.chat.id,
-        reply_markup=keyboard,
         photo="final.png",
         caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
                     + f"🎼 **Request Dari:** {r_by.mention}",
