@@ -795,8 +795,9 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"🎼️ **Lagu yang Anda minta Sedang Antri di posisi** {position}",
-        
+            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎼 **Request Dari:** {r_by.mention}",
+                   reply_markup=keyboard,
         )           
            
     else:
@@ -817,7 +818,9 @@ async def jiosaavn(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"🎼️ **Sedang Memutar Lagu** {sname} **Via Jiosaavn**",
+        caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎼 **Request Dari:** {r_by.mention}",
+                   reply_markup=keyboard,
     )
 
     os.remove("final.png")
