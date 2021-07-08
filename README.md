@@ -31,7 +31,7 @@
 
 ### 💜 HEROKU
 
-<a href="https://heroku.com/deploy?template=https://github.com/kenkannih/Music-Ken"><img src="https://img.shields.io/badge/BUAT DIHEROKU-blue?style=for-the-badge&logo=heroku" /></a>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkannih/Music-Ken"><img src="https://img.shields.io/badge/BUAT DIHEROKU-blue?style=for-the-badge&logo=heroku"width="300"high="50"/></a></p>
 
 ## VIA Repl.it
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
