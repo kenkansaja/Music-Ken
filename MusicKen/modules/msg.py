@@ -32,6 +32,9 @@ f"""
 **=>> Memutar Lagu 🎧**
 
 • /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+• /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
 • /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
 • /player: Buka menu Pengaturan pemain
