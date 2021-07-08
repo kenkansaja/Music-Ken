@@ -165,7 +165,7 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(lol)
         if not queue:
-            await cb.message.edit("Player is idle")
+            await cb.message.edit("Assistant sudah siap")
         temp = [t for t in queue]
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
@@ -631,7 +631,7 @@ async def deezer(client: Client, message_: Message):
     queryy = text[1]
     query=queryy
     res = lel
-    await res.edit(f'Searching 👀👀👀 for `{query}` on deezer')
+    await res.edit(f'Mencari 👀👀👀 lagu `{query}` dari deezer')
     try:
         songs = await arq.deezer(query,1)
         if not songs.ok:
@@ -643,8 +643,9 @@ async def deezer(client: Client, message_: Message):
         duration = songs.result[0].duration
         thumbnail = songs.result[0].thumbnail
     except:
-        await res.edit("Found Literally Nothing, You Should Work On Your English!")
-        return
+        await res.edit("**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan"
+            )    
+    return
     keyboard = InlineKeyboardMarkup(
             [
                 [
@@ -669,7 +670,7 @@ async def deezer(client: Client, message_: Message):
         qeue.append(appendable)
         await res.edit_text(f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
     else:
-        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
+        await res.edit_text(f"✯{bn}✯=▶️ Memutar.....")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -686,7 +687,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via Deezer in Linked Channel",
+        caption=f"Memutar [{title}]({url}) Via Deezer di Channel",
     )
     os.remove("final.png")
 
@@ -702,12 +703,12 @@ async def jiosaavn(client: Client, message_: Message):
       conv = conchat.linked_chat
       chid = conid
     except:
-      await message_.reply("Is chat even linked")
+      await message_.reply("Apakah obrolan ini terhubung")
       return
     try:
       administrators = await get_administrators(conv)
     except:
-      await message.reply("Am I admin of Channel")
+      await message.reply("Apakah saya admin di channel")
     try:
         user = await USER.get_me()
     except:
@@ -722,20 +723,20 @@ async def jiosaavn(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Ingatlah untuk menambahkan Assistant di Channel Anda</b>",
                     )
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
-                    )
+                        "<b>Jadikan saya Admin di Channel Anda</b>",
+                    )                    
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await lel.edit(
-                        "<b>helper userbot joined your channel</b>",
+                        "<b>Assistant berhasil bergabung di channel Anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -743,23 +744,23 @@ async def jiosaavn(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan Channel Anda karena banyaknya permintaan untuk userbot! Pastikan pengguna tidak diblokir dalam Channel."
+                        "\n\nAtau tambahkan asisten ke Channel Anda secara manual dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this channel, Ask channel admin to send /play command for first time or add assistant manually</i>"
-        )
+            f"<i>{user.first_name} Userbot tidak ada dalam obrolan ini, Minta admin saluran untuk mengirim perintah /play untuk pertama kalinya atau menambahkan {user.first_name} secara manual</i>"
+       )
         return
     requested_by = message_.from_user.first_name
     chat_id = message_.chat.id
     text = message_.text.split(" ", 1)
     query = text[1]
     res = lel
-    await res.edit(f"Searching 👀👀👀 for `{query}` on jio saavn")
+    await res.edit(f"Mencari 👀👀👀 lagu `{query}` dari jio saavn")
     try:
         songs = await arq.saavn(query)
         if not songs.ok:
@@ -771,7 +772,7 @@ async def jiosaavn(client: Client, message_: Message):
         sthumb = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png"
         sduration = int(songs.result[0].duration)
     except Exception as e:
-        await res.edit("Found Literally Nothing!, You Should Work On Your English.")
+        await res.edit(""**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas.")
         print(str(e))
         return
     keyboard = InlineKeyboardMarkup(
@@ -798,7 +799,7 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"✯{bn}✯=#️⃣ Queued at position {position}",
+            caption=f"✯{bn}✯=#️⃣ Antri di posisi {position}",
         )
 
     else:
@@ -818,9 +819,10 @@ async def jiosaavn(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing {sname} Via Jiosaavn in linked channel",
+        caption=f"Memutar {sname} Via Jiosaavn di channel",
     )
     os.remove("final.png")
 
 
 # Have u read all. If read RESPECT :-)
+# Translate asal-asalan ke indonesia by @kenkanasw
