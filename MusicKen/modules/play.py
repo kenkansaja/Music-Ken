@@ -692,8 +692,9 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"🎼️ **Sedang Memutar Lagu** [{title}]({url}) **Via Deezer**",
-    )
+        caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎼 **Request Dari:** {r_by.mention}",  
+        )
     os.remove("final.png")
 
 @Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
@@ -796,7 +797,7 @@ async def jiosaavn(client: Client, message_: Message):
             photo="final.png",
             reply_markup=keyboard,
             caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}"  
+                    + f"🎼 **Request Dari:** {r_by.mention}",  
         )
            
     else:
@@ -818,7 +819,7 @@ async def jiosaavn(client: Client, message_: Message):
         photo="final.png",
         reply_markup=keyboard,
         caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {s_name.mention}"  
+                    + f"🎼 **Request Dari:** {r_by.mention}",  
         )
 
     os.remove("final.png")
