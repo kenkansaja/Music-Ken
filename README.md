@@ -41,7 +41,9 @@ Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 ## VIA BOT TELEGRAM
 Khusus strings pyrogram
 <a href="https://t.me/Stringdurhakabot"><img src="https://img.shields.io/badge/STRING BOT-black?style=for-the-badge&logo=Telegram" /></a>
+<a href="https://t.me/kenkanrobot"><img src="https://img.shields.io/badge/BOT API HASH DAN API ID-red?style=for-the-badge&logo=Telegram" /></a>
 
+#
 ### ⚔ Self-hosting (For Devs) 
 ```sh
 # Install Git First (apt-instll git)
