@@ -15,14 +15,13 @@ async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""👋🏻 Hallo, Nama saya [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
 Dikekolah oleh {OWNER}
-┈───────────────────┈
+・✦▭▭▭▭✧◦✦◦✧▭▭▭▭✦ ・
 ☑️ Saya memiliki banyak fitur untuk anda yang suka lagu
 🔘 Memutar lagu di group 
+🔘 Memutar lagu di channel
 🔘 Mendownload lagu
-🔘 Mendownload video
 🔘 Mencari link youtube
-🔘 Mencari lirik lagu
-┈───────────────────┈
+・✦▭▭▭▭✧◦✦◦✧▭▭▭▭✦ ・
 ☑️ Klik tombol bantuan untuk informasi lebih lanjut
 """,
         reply_markup=InlineKeyboardMarkup(
