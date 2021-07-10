@@ -80,12 +80,12 @@ async def bye(client, message):
             try:
                 await USER.leave_chat(dialog.chat.id)
                 left = left+1
-                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
+                await lol.edit(f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan.")
             except:
                 failed=failed+1
-                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
+                await lol.edit(f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan.")
             await asyncio.sleep(0.7)
-        await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
+        await client.send_message(message.chat.id, f"Berhasil {left} obrolan. Gagal {failed} obrolan.")
     
     
 @Client.on_message(filters.command(["userbotjoinchannel","ubjoinc"]) & ~filters.private & ~filters.bot)
