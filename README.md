@@ -40,19 +40,21 @@
 
 ### 💜 HEROKU
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkannih/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=for-the-badge&logo=heroku"width="300"high="50"/></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkannih/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
 
-## VIA Repl.it
+## VIA REPLIT
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
-<a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/STRINGS-SESSION-blue?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
+<p align="center"><a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/REPLIT-STRINGS-yellow?style=plastic&logo=replit&logoColor=yellow"width="270" height="40" /></a></p>
 
 ## VIA BOT TELEGRAM
 Khusus strings pyrogram
-<a href="https://t.me/Stringdurhakabot"><img src="https://img.shields.io/badge/STRING BOT-black?style=for-the-badge&logo=Telegram" /></a>
-<a href="https://t.me/kenkanrobot"><img src="https://img.shields.io/badge/BOT API HASH-DAN APP ID-gold?style=for-the-badge&logo=Telegram" /></a>
+<p align="center">
+<a href="https://t.me/Stringdurhakabot"><img src="https://img.shields.io/badge/STRING-BOT-green?style=plastic&logo=Telegram"width="270" height="40"  /></a>
+<a href="https://t.me/kenkanrobot"><img src="https://img.shields.io/badge/BOT API HASH-DAN APP ID-gold?style=plastic&logo=Telegram&logoColor=yellow"width="270" height="40" /></a>
+</p>
 
-#
+
 ### ⚔ Self-hosting (For Devs) 
 ```sh
 # Install Git First (apt-instll git)
