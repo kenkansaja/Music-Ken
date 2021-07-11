@@ -4,11 +4,11 @@
 <p align="center"><img src="https://2.bp.blogspot.com/-eBu3-f3vzW0/V3E8UnYXsfI/AAAAAAAADHI/lJrPAoLSE70aO0F3W9fruZ8O-qJY76MSwCLcB/s1600/gambar-gerak-gif-chip-and-dale-terbaru.gif" style="width:100%"></p>
 <p align="center">
   <a href="https://github.com/kenkannih/Music-Ken/fork">
-    <img src="https://img.shields.io/github/forks/kenkannih/Music-Ken?label=Fork&style=social">
+    <img src="https://img.shields.io/github/forks/kenkannih/Music-Ken?label=Fork&style=social&logoColor=blue"widht="50" height="30">
     
   </a>
   <a href="https://github.com/kenkannih/Music-Ken">
-    <img src="https://img.shields.io/github/stars/kenkannih/Music-Ken?style=social">
+    <img src="https://img.shields.io/github/stars/kenkannih/Music-Ken?style=social&logoColor=blue"widht="50" height="30">
   </a>
 </p>  
 
