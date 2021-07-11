@@ -1,3 +1,5 @@
+# Bug fix @kenkanasw
+
 import json
 import os
 from os import path
@@ -561,7 +563,7 @@ async def play(_, message: Message):
                     + f"🎼 **Request Dari:** {message.from_user.mention}"  
         )
         os.remove("final.png")
-        
+        return await lel.delete()
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
@@ -696,7 +698,7 @@ async def deezer(client: Client, message_: Message):
                     + f"🎼 **Request Dari:** {r_by.mention}",  
         )
     os.remove("final.png")
-
+    return await lel.delete()
 @Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
@@ -823,6 +825,6 @@ async def jiosaavn(client: Client, message_: Message):
         )
 
     os.remove("final.png")
-
+    return await lel.delete()
 
 # Have u read all. If read RESPECT :-)
