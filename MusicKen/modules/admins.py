@@ -5,7 +5,8 @@ from pyrogram.types import Message
 
 from MusicKen.function.admins import set
 from MusicKen.helpers.channelmusic import get_chat_id
-from MusicKen.helpers.decorators import authorized_users_only, errors
+from MusicKen.helpers.decorators import authorized_users_only
+from MusicKen.helpers.decorators import errors
 from MusicKen.helpers.filters import command, other_filters
 from MusicKen.services.callsmusic import callsmusic
 
