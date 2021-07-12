@@ -1,26 +1,11 @@
-# Calls Music 1 - Telegram bot for streaming audio in group calls
-# Copyright (C) 2021  Roj Serbest
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
 from typing import Callable
-
+import asyncio
 from pyrogram import Client
 from pyrogram.types import Message
+from pyrogram import filters
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 
-from MusicKen.config import SUDO_USERS
+from MusicKen.config import SUDO_USERS, SUPPORT_GROUP
 from MusicKen.helpers.admins import get_administrators
 
 
@@ -46,3 +31,28 @@ def authorized_users_only(func: Callable) -> Callable:
                 return await func(client, message)
 
     return decorator
+
+
+def is_subscribe(func: Callable) -> Callable:
+     async def subscribe(filter, client, message):
+         if not SUPPORT_GROUP:
+            return True
+            user_id = message.from_user.id
+         if user_id in SUDO_USERS:
+            return True
+         try:
+            member = await client.get_chat_member(chat_id = SUPPORT_GROUP, user_id = user_id)
+            except UserNotParticipant:
+            return await message.reply("""**Anda harus bergabung dulu di group kami kak untuk bisa menggunakan bot ini**""",
+              reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"
+                            ),
+                            InlineKeyboardButton(
+                                "OWNER 👮", url=f"https://t.me/kenkanasw"
+                            )
+                        ]
+                    ]
+            return subcribe
