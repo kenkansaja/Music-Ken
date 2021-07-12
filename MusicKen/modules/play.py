@@ -28,7 +28,7 @@ from MusicKen.helpers.admins import get_administrators
 from MusicKen.helpers.channelmusic import get_chat_id
 from MusicKen.helpers.errors import DurationLimitError
 from MusicKen.helpers.decorators import errors
-from MusicKen.helpers.decorators import subcribe
+from MusicKen.helpers.subcribe import subcribe
 from MusicKen.helpers.decorators import authorized_users_only
 from MusicKen.helpers.filters import command, other_filters
 from MusicKen.helpers.gets import get_file_name
@@ -339,7 +339,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
+@Client.on_message(command(["play","ytplay","yt","p"]) & other_filters & subcribe)
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
