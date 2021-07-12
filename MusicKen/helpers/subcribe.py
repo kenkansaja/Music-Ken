@@ -11,7 +11,7 @@ async def subcribe(filter, client, message):
     if not SUB_GROUP:
         return True
     user_id = message.from_user.id
-    if user_id in SUDO_USER:
+    if user_id in SUDO_USERS:
         return True
     try:
         member = await client.get_chat_member(chat_id = SUB_GROUP, user_id = user_id)
