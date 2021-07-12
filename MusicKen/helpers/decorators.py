@@ -2,7 +2,6 @@ from typing import Callable
 import asyncio
 from pyrogram import Client
 from pyrogram.types import Message
-from pyrogram import filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 
 from MusicKen.config import SUDO_USERS, SUPPORT_GROUP
@@ -34,7 +33,8 @@ def authorized_users_only(func: Callable) -> Callable:
 
 
 def subcribe(func: Callable) -> Callable:
-     async def decorator(filter, client, message):
+     async def decorator(client: Client, message: Message):
+
          if not SUPPORT_GROUP:
             return True
             user_id = message.from_user.id
