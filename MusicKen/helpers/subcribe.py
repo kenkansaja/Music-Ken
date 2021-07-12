@@ -21,3 +21,21 @@ async def is_subscribed(filter, client, message):
         return False
     else:
         return True
+
+@Client.on_message(filters.command(["cplay","play","dplay","cdplay","splay"]) & filters.group & ~filters.edited)
+async def not_joined(client: Client, message: Message):
+    text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
+    message_text = message.text
+    try:
+        command, argument = message_text.split()
+        text = text + f" <b>[👉KLIK SUB👈](https://t.me/c/{SUB_GROUP})</b>"
+    except ValueError:
+        pass
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("💌 JOIN 💌", url = f"t.me/c/{SUB_GROUP}")]])
+    await message.reply(
+        text = text,
+        reply_markup = reply_markup,
+        quote = True,
+        disable_web_page_preview = True
+    )
+    
