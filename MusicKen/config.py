@@ -28,4 +28,4 @@ LOG_GRP = getenv("LOG_GRP", None)
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
-SUB_GROUP = int(getenv("SUB_GROUP", None)
+SUB_GROUP = int(os.getenv("SUB_GROUP", None)
