@@ -54,4 +54,6 @@ def subscribe(func: Callable) -> Callable:
                                       )
                                   ]
                               ]
+                           )
+                        )
                       return decorator
