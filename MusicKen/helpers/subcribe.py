@@ -6,7 +6,6 @@ from MusicKen.config import SUDO_USERS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 from MusicKen.helpers.filters import command, other_filters
-from pyrogram inport Client
 
 async def subcribe(filter, client, message):
     if not SUPPORT_GROUP:
@@ -24,7 +23,7 @@ async def subcribe(filter, client, message):
     else:
         return True
 
-@Client.on_message(command(["cplay","play","dplay","cdplay","splay"]) & other_filters)
+@Bot.on_message(command(["start"]) & other_filters)
 async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
     message_text = message.text
