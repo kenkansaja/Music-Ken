@@ -29,8 +29,7 @@ async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
     message_text = message.text
     try:
-        command, argument = message_text.split()
-        text = text + f" <b>[👉KLIK SUB👈](https://t.me/c/{SUB_GROUP})</b>"
+        text = text + f" <b>[👉KLIK SUB👈](https://t.me/{SUB_GROUP})</b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("💌 JOIN 💌", url = f"t.me/c/{SUB_GROUP}")]])
