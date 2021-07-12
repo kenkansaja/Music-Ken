@@ -22,7 +22,7 @@ async def subcribe(filter, client, message):
     else:
         return True
 
-@Client.on_message(filters.command(["cplay","play","dplay","cdplay","splay"]) & other.filters)
+@Client.on_message(command(["cplay","play","dplay","cdplay","splay"]) & other_filters)
 async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
     message_text = message.text
