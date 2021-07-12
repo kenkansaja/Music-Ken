@@ -1,7 +1,8 @@
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
-from MusicKen.config import SUDO_USERS, SUPPORT_GROUP
+from MusicKen.config import SUDO_USERS
+from MusicKen.config import SUPPORT_GROUP
 from MusicKen.helpers.admins import get_administrators
 
 
@@ -29,21 +30,11 @@ def authorized_users_only(func: Callable) -> Callable:
     return decorator
 
 
-def subscribe(func: Callable) -> Callable:
-  async def decorator(client: Client, message: Message):
-    if not message.from_user.id in SUPPORT_GROUP:
-            return await message.reply(f"""**[" + user_name + "](tg://user?id=" + str(user_id) + ")Anda harus bergabung dulu di group kami kak untuk bisa menggunakan bot ini**""",
-                        reply_markup=InlineKeyboardMarkup(
-                              [
-                                  [
-                                      InlineKeyboardButton(
-                                          "💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"
-                                      ),
-                                      InlineKeyboardButton(
-                                          "OWNER 👮", url=f"https://t.me/kenkanasw"
-                                      )
-                                  ]
-                              ]
-                           )
-                        )
-            return decorator
+def subcribe(func: Callable) -> Callable:
+    async def decorator(client: Client, message: Message):
+        try:
+            return await func(client, message)
+        except Exception as e:
+            await message.reply(f"[" + user_name + "](tg://user?id=" + str(user_id) + ") Anda harus bergabung dulu di @musikkugroup agar bisa menggunakan bot ini")
+
+    return decorator
