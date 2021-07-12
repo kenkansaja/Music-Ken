@@ -21,7 +21,8 @@ from youtube_search import YoutubeSearch
 from MusicKen.config import ARQ_API_KEY
 from MusicKen.config import BOT_NAME as bn
 from MusicKen.config import DURATION_LIMIT
-from MusicKen.config import UPDATES_CHANNEL as updateschannel, SUPPORT_GROUP
+from MusicKen.config import UPDATES_CHANNEL as updateschannel
+from MusicKen.config. import SUPPORT_GROUP as groupsupport
 from MusicKen.config import que
 from MusicKen.function.admins import admins as a
 from MusicKen.helpers.admins import get_administrators
@@ -478,7 +479,7 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
                 ],   
                 [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
                 [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
@@ -519,7 +520,7 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
                 ],
                 [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
                 [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
@@ -653,7 +654,7 @@ async def deezer(client: Client, message_: Message):
             [
                 [
                     InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
                 ],
                 [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
                 [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
@@ -779,7 +780,7 @@ async def jiosaavn(client: Client, message_: Message):
             [
                 [
                     InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
                 ],
                 [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
                 [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
