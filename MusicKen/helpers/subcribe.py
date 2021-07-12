@@ -6,6 +6,7 @@ from MusicKen.config import SUDO_USERS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 from MusicKen.helpers.filters import command, other_filters
+from pyrogram inport Client
 
 async def subcribe(filter, client, message):
     if not SUB_GROUP:
