@@ -31,7 +31,7 @@ def authorized_users_only(func: Callable) -> Callable:
 
 def subscribe(func: Callable) -> Callable:
   async def decorator(client: Client, message: Message):
-    if not message.from_user.id in SUDO_USERS, SUPPORT_GROUP:
+    if not message.from_user.id in SUPPORT_GROUP:
             return await message.reply(f"""**[" + user_name + "](tg://user?id=" + str(user_id) + ")Anda harus bergabung dulu di group kami kak untuk bisa menggunakan bot ini**""",
                         reply_markup=InlineKeyboardMarkup(
                               [
