@@ -33,8 +33,8 @@ def authorized_users_only(func: Callable) -> Callable:
     return decorator
 
 
-def is_subscribe(func: Callable) -> Callable:
-     async def subscribe(filter, client, message):
+def subcribe(func: Callable) -> Callable:
+     async def decorator(filter, client, message):
          if not SUPPORT_GROUP:
             return True
             user_id = message.from_user.id
@@ -55,4 +55,4 @@ def is_subscribe(func: Callable) -> Callable:
                             )
                         ]
                     ]
-            return subcribe
+            return decorator
