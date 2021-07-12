@@ -2,7 +2,7 @@ from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
 from MusicKen.config import SUDO_USERS
-from MusicKen.config import SUPPORT_GROUP
+from MusicKen.config import SUB_GROUP
 from MusicKen.helpers.admins import get_administrators
 
 
@@ -32,6 +32,7 @@ def authorized_users_only(func: Callable) -> Callable:
 
 def subcribe(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
+       if not message.from_user.id in SUB_GROUP:
         try:
             return await func(client, message)
         except Exception as e:
