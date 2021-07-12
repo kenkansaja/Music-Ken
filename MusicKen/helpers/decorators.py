@@ -36,6 +36,6 @@ def subcribe(func: Callable) -> Callable:
         try:
             return await func(client, message)
         except Exception as e:
-            await message.reply(f"[" + user_name + "](tg://user?id=" + str(user_id) + ") Anda harus bergabung dulu di @musikkugroup agar bisa menggunakan bot ini")
+            await message.reply(f"[" + user_name + "](tg://user?id=" + str(user_id) + ") Anda harus bergabung dulu di https://t.me/c/{SUB_GROUP} agar bisa menggunakan bot ini")
 
     return decorator
