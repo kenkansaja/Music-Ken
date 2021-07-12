@@ -3,12 +3,12 @@
 </p>
 <p align="center"><img src="https://2.bp.blogspot.com/-eBu3-f3vzW0/V3E8UnYXsfI/AAAAAAAADHI/lJrPAoLSE70aO0F3W9fruZ8O-qJY76MSwCLcB/s1600/gambar-gerak-gif-chip-and-dale-terbaru.gif" style="width:100%"></p>
 <p align="center">
-  <a href="https://github.com/kenkannih/Music-Ken/fork">
-    <img src="https://img.shields.io/github/forks/kenkannih/Music-Ken?label=FORK&style=social&logoColor=blue"widht="50" height="30">
+  <a href="https://github.com/kenkansaja/Music-Ken/fork">
+    <img src="https://img.shields.io/github/forks/kenkansaja/Music-Ken?label=FORK&style=social&logoColor=blue"widht="50" height="30">
     
   </a>
-  <a href="https://github.com/kenkannih/Music-Ken">
-    <img src="https://img.shields.io/github/stars/kenkannih/Music-Ken?label=STARS&style=social&logoColor=blue"widht="50" height="30">
+  <a href="https://github.com/kenkansaja/Music-Ken">
+    <img src="https://img.shields.io/github/stars/kenkansaja/Music-Ken?label=STARS&style=social&logoColor=blue"widht="50" height="30">
   </a>
 </p>  
 
@@ -20,7 +20,7 @@
   <b>🎶 MUSIK KEN</b>
 </h1>
 
-![Repo 👁‍🗨](https://komarev.com/ghpvc/?username=kenkannih&color=red&style=flat-square&label=DILIHAT+👁‍🗨)
+![Repo 👁‍🗨](https://komarev.com/ghpvc/?username=kenkansaja&color=red&style=flat-square&label=DILIHAT+👁‍🗨)
 
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
@@ -40,12 +40,12 @@
 
 ### 💜 HEROKU
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkannih/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkansaja/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
 
 ## VIA REPLIT
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
-<p align="center"><a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/REPLIT-STRINGS-yellow?style=plastic&logo=replit&logoColor=yellow"width="270" height="40" /></a></p>
+<p align="center"><a href="https://replit.com/@kenkansaja/strings-session#main.py"><img src="https://img.shields.io/badge/REPLIT-STRINGS-yellow?style=plastic&logo=replit&logoColor=yellow"width="270" height="40" /></a></p>
 
 ## VIA BOT TELEGRAM
 Khusus strings pyrogram
@@ -58,7 +58,7 @@ Khusus strings pyrogram
 ### ⚔ Self-hosting (For Devs) 
 ```sh
 # Install Git First (apt-instll git)
-$ git clone https://github.com/kenkannih/Music-Ken
+$ git clone https://github.com/kenkansaja/Music-Ken
 $ cd Music-Ken
 # Upgrade sources
 # Install All Requirements 
