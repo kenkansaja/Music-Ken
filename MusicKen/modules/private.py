@@ -3,14 +3,14 @@ from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from MusicKen.config import SOURCE_CODE, ASSISTANT_NAME, PROJECT_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, BOT_USERNAME, OWNER
-from MusicKen.helpers.subcribe import subcribe
+
 logging.basicConfig(level=logging.INFO)
 
 
 @Client.on_message(
     filters.command("start")
     & filters.private
-    & ~ filters.edited & subcribe
+    & ~ filters.edited 
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
