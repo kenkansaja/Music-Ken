@@ -22,6 +22,9 @@
       "description": "Nama Bot MusicPlayer Anda.",
       "required": false,
       "value": ""
+    "SUB_GROUP": {
+      "description": "id group wajib sub.",
+      "value": ""
     },
     "SUPPORT_GROUP": {
       "description": "Grup dukungan MusicPlayer Anda tanpa @ [skip ini jika Anda tidak punya]",
