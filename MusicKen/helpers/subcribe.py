@@ -6,7 +6,7 @@ from MusicKen.config import ADMINS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 
-async def is_subscribed(filter, client, message):
+async def subcribe(filter, client, message):
     if not SUB_GROUP:
         return True
     user_id = message.from_user.id
