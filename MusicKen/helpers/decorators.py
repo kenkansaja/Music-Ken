@@ -1,9 +1,6 @@
 from typing import Callable
-import asyncio
 from pyrogram import Client
 from pyrogram.types import Message
-from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
-
 from MusicKen.config import SUDO_USERS, SUPPORT_GROUP
 from MusicKen.helpers.admins import get_administrators
 
