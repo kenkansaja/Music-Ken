@@ -23,7 +23,7 @@ async def subcribe(filter, client, message):
     else:
         return True
 
-@Bot.on_message(command(["start"]) & other_filters)
+@Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
     message_text = message.text
