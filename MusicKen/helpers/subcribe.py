@@ -2,7 +2,7 @@ import re
 import asyncio
 from pyrogram import filters
 from MusicKen.config import SUB_GROUP
-from MusicKen.config import ADMINS
+from MusicKen.config import SUDO_USERS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 
@@ -22,7 +22,7 @@ async def subcribe(filter, client, message):
     else:
         return True
 
-@Client.on_message(filters.command(["cplay","play","dplay","cdplay","splay"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["cplay","play","dplay","cdplay","splay"]) & other.filters)
 async def not_joined(client: Client, message: Message):
     text = "<b>Anda harus join channel/Group untuk menggunakan saya\n\nTolong bergabunglah ke Channel/Group</b>"
     message_text = message.text
