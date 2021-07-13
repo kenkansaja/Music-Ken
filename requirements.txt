@@ -16,4 +16,4 @@ python-arq
 future
 psutil
 wget
-sudo port install youtube-dl
+youtube-dl
