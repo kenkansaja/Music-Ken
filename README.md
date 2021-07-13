@@ -45,7 +45,7 @@
 ## VIA REPLIT
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
-<p align="center"><a href="https://replit.com/@kenkansaja/strings-session#main.py"><img src="https://img.shields.io/badge/REPLIT-STRINGS-yellow?style=plastic&logo=replit&logoColor=yellow"width="270" height="40" /></a></p>
+<p align="center"><a href="https://replit.com/@kenkannih/strings-session#main.py"><img src="https://img.shields.io/badge/REPLIT-STRINGS-yellow?style=plastic&logo=replit&logoColor=yellow"width="270" height="40" /></a></p>
 
 ## VIA BOT TELEGRAM
 Khusus strings pyrogram
