@@ -342,7 +342,6 @@ async def m_cb(b, cb):
 
 
 @Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
-@errors
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
@@ -570,7 +569,6 @@ async def play(_, message: Message):
         return await lel.delete()
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
-@errors
 async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
@@ -706,7 +704,6 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
     return await lel.delete()
 @Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
-@errors
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
