@@ -1,7 +1,7 @@
 from pyrogram import Client
 from pyrogram.types import ChatMemberUpdated
 
-from MusicKen.function import admin as cache
+from MusicKen.function import admins as cache
 
 
 @Client.on_chat_member_updated()
