@@ -681,8 +681,6 @@ async def jiosaavn(client: Client, message_: Message):
             caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
                 + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
         )
-       os.remove("final.png")
-       return await lel.delete()
            
     else:
         await res.edit_text("Playing.....")
