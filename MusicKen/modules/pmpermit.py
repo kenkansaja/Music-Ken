@@ -23,9 +23,6 @@ async def pmPermit(client: USER, message: Message):
             )
             return
 
-@USER.on_message(filters.command(["/play"]) & filters.private & ~filters.me & ~filters.bot)
-async def pmPermit(client: USER, message: Message):
-    await USER.send_message(message.chat.id, "Hadeh masih ada aja orang bego yang gak bisa bedain bot, Sama bukan bot",)
 
 @Client.on_message(filters.command(["/pmpermit"]))
 async def bye(client: Client, message: Message):
