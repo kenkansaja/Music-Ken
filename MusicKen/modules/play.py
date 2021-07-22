@@ -413,8 +413,8 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}".format(message.from_user.mention()),
-            reply_markup=keyboard,
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+          reply_markup=keyboard,
         )
         os.remove("final.png")
         return await lel.delete()
@@ -576,6 +576,7 @@ async def deezer(client: Client, message_: Message):
         )
     os.remove("final.png")
     return await lel.delete()
+
 @Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
@@ -675,9 +676,11 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}",  
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
         )
+       os.remove("final.png")
+       return await lel.delete()
            
     else:
         await res.edit_text("Playing.....")
