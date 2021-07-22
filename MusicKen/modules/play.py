@@ -412,7 +412,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}".format(message.from_user.mention()),
             reply_markup=keyboard,
         )
         os.remove("final.png")
