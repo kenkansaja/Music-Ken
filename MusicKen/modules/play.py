@@ -443,8 +443,6 @@ async def play(_, message: Message):
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
-    if message_.chat.id in DISABLED_GROUPS:
-        return
     global que
     lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
     administrators = await get_administrators(message_.chat)
@@ -553,9 +551,9 @@ async def deezer(client: Client, message_: Message):
 
     else:
         await res.edit_text(f"🎼️ **Playing...**")
-
+        chat_id = message_.chat.id
         que[chat_id] = []
-        qeue = que.get(chat_id)
+        qeue = que.get(message_.chat.id)
         s_name = title
         r_by = message_.from_user
         loc = file_path
@@ -577,7 +575,7 @@ async def deezer(client: Client, message_: Message):
                     + f"🎼 **Request Dari:** {r_by.mention}",  
         )
     os.remove("final.png")
-    return await lel.delete()
+   
 
 @Client.on_message(filters.command("splay") & filters.group & ~ filters.edited)
 @authorized_users_only
