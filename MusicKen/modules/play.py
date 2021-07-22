@@ -548,7 +548,16 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
+        await res.delete()
+        m = await client.send_photo(
+            chat_id=message_.chat.id,
+            photo="final.png",
+            reply_markup=keyboard,
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+        )
+       os.remove("final.png")
+       return await lel.delete()
     else:
         await res.edit_text(f"🎼️ **Playing...**")
 
