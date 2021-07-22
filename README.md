@@ -20,6 +20,12 @@
   <b>🎶 MUSIK KEN</b>
 </h1>
 
+## INFO
+
+ganti aja yang di youtube.py play.py song.py dan channelplay.py yang awalnya 
+
+"format": "bestaudio[ext=m4a]", jadi `"format": "141/bestaudio[ext=m4a]",`
+
 ![Repo 👁‍🗨](https://komarev.com/ghpvc/?username=kenkansaja&color=red&style=flat-square&label=DILIHAT+👁‍🗨)
 
 
