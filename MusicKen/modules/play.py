@@ -410,9 +410,14 @@ async def play(_, message: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",)
-
+        await message.reply_photo(
+            photo="final.png",
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+          reply_markup=keyboard,
+        )
+        os.remove("final.png")
+        return await lel.delete()
     else:
         chat_id = get_chat_id(message.chat)
         que[chat_id] = []
@@ -543,16 +548,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.delete()
-        m = await client.send_photo(
-            chat_id=message_.chat.id,
-            photo="final.png",
-            reply_markup=keyboard,
-            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
-        )
-       os.remove("final.png")
-       return await lel.delete()
+        await res.edit_text(f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",)
+
     else:
         await res.edit_text(f"🎼️ **Playing...**")
 
