@@ -27,4 +27,4 @@ async def broadcast(_, message: Message):
                 await asyncio.sleep(3)
             except:
                 failed=failed+1
-                await message.reply_text(f"**Berhasil Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
+                await wtf.edit(f"**Berhasil Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
