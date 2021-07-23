@@ -13,7 +13,6 @@ logging.basicConfig(level=logging.INFO)
     & ~ filters.edited 
 )
 async def start_(client: Client, message: Message):
-    await message.replay_sticker("CAACAgUAAxkBAAFF-KFg-jaEvlhu_kNknYQjxsuyDvp--AACjAMAAtpWSVeocCICILIfRSAE")
     await message.reply_text(
         f"""👋🏻 Hallo, Nama saya [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
 Dikekolah oleh {OWNER}
