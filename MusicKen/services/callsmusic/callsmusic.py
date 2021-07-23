@@ -1,12 +1,11 @@
 from pyrogram import Client
 from pytgcalls import PyTgCalls
 
-from MusicKen.config import API_HASH, API_ID, SESSION_NAME, BOT_TOKEN
+from MusicKen.config import API_HASH, API_ID, SESSION_NAME
 from MusicKen.services.callsmusic import queues
 
 client = Client(SESSION_NAME, API_ID, API_HASH)
 pytgcalls = PyTgCalls(client)
-bot = Bot(API_ID, API_HASH, BOT_TOKEN)
 
 @pytgcalls.on_stream_end()
 def on_stream_end(chat_id: int) -> None:
