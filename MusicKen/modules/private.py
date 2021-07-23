@@ -129,7 +129,7 @@ async def reload(client: Client, message: Message):
         )
    )
 
-@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command("hp") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
       f"""
@@ -179,5 +179,18 @@ Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /en
                      InlineKeyboardButton(text = 'ᴄʜᴀɴɴᴇʟ 📣', url=f"https://t.me/{UPDATES_CHANNEL}")],
                     [InlineKeyboardButton("🌟 ɢɪᴛ ʜᴜʙ 🌟", url=f"{SOURCE_CODE}")]
                 ]
+        ),
+    )
+
+@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
+async def ghelp(_, message: Message):
+    await message.reply_text(
+        f"""**🙋‍♀️  Halo yang disana! Saya dapat memutar musik di obrolan suara grup & saluran telegram.‌‌**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⚔️ ʙᴀɴᴛᴜᴀɴ", callback_data = f"help+2")
+                ]
+            ]
         ),
     )
