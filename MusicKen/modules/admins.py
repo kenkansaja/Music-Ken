@@ -24,7 +24,7 @@ async def update_admin(client, message: Message):
     )
     await message.reply_text("✅️ Admin cache refreshed!")
 
-@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}") & other_filters)
+@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -37,7 +37,7 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ **Paused!**")
 
 
-@Client.on_message(command(["resume", f"@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -50,7 +50,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ **Resumed!**")
 
 
-@Client.on_message(command(["end", f"@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["end", f"end@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -66,7 +66,7 @@ async def stop(_, message: Message):
         await message.reply_text("❌ **Memberhentikan Lagu!**")
 
 
-@Client.on_message(command(["skip", f"@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["skip", f"skip@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def skip(_, message: Message):
     global que
@@ -86,7 +86,7 @@ async def skip(_, message: Message):
         await message.reply_text("⏩ **Melewati lagu saat ini!**")
 
 
-@Client.on_message(filters.command(["admincache", f"@{BOT_USERNAME}"]))
+@Client.on_message(filters.command(["admincache", f"admincache@{BOT_USERNAME}"]))
 @authorized_users_only
 async def admincache(client, message: Message):
     set(
