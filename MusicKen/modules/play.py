@@ -350,11 +350,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                                InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
-                            [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
                         ]
                     )
         requested_by = message.from_user.first_name
@@ -391,11 +391,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                                InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
-                            [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
                         ]
                     )
         requested_by = message.from_user.first_name
@@ -524,15 +524,15 @@ async def deezer(client: Client, message_: Message):
         pass    
     
     keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
-                ],
-                [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
     file_path = await convert(wget.download(url))
     await res.edit("📥 **Generating Thumbnail**")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
@@ -653,15 +653,15 @@ async def jiosaavn(client: Client, message_: Message):
         is_playing = False
         return
         keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💬 GROUP", url=f"https://t.me/{groupsupport}"),
-                ],
-                [InlineKeyboardButton("💌 CHANNEL", url=f"https://t.me/{updateschannel}")],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
     file_path= await converter.convert(wget.download(slink))
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message_.chat.id, file=file_path)
