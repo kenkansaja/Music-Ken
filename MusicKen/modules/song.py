@@ -209,7 +209,7 @@ def time_formatter(milliseconds: int) -> str:
 
 
 ydl_opts = {
-    "format": "bestaudio/best",
+    "format": "141/bestaudio[ext=m4a]",
     "writethumbnail": True,
     "postprocessors": [
         {
