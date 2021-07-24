@@ -1,5 +1,6 @@
 from asyncio.queues import QueueEmpty
 from MusicKen.config import que
+from MusicKen.config import BOT_USERNAME
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
@@ -11,7 +12,7 @@ from MusicKen.helpers.filters import command, other_filters
 from MusicKen.services.callsmusic import callsmusic
 
 
-@Client.on_message(filters.command("adminreset"))
+@Client.on_message(filters.command(["adminreset", f"adminreset@{BOT_USERNAME}"]))
 async def update_admin(client, message: Message):
     chat_id = get_chat_id(message.chat)
     set(
@@ -23,8 +24,7 @@ async def update_admin(client, message: Message):
     )
     await message.reply_text("✅️ Admin cache refreshed!")
 
-
-@Client.on_message(command("pause") & other_filters)
+@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}") & other_filters)
 @authorized_users_only
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -37,7 +37,7 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ **Paused!**")
 
 
-@Client.on_message(command("resume") & other_filters)
+@Client.on_message(command(["resume", f"@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -50,7 +50,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ **Resumed!**")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(command(["end", f"@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
@@ -66,7 +66,7 @@ async def stop(_, message: Message):
         await message.reply_text("❌ **Memberhentikan Lagu!**")
 
 
-@Client.on_message(command("skip") & other_filters)
+@Client.on_message(command(["skip", f"@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def skip(_, message: Message):
     global que
@@ -86,7 +86,7 @@ async def skip(_, message: Message):
         await message.reply_text("⏩ **Melewati lagu saat ini!**")
 
 
-@Client.on_message(filters.command("admincache"))
+@Client.on_message(filters.command(["admincache", f"@{BOT_USERNAME}"]))
 @authorized_users_only
 async def admincache(client, message: Message):
     set(
