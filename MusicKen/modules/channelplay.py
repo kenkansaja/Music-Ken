@@ -474,14 +474,15 @@ async def play(_, message: Message):
         dlurl = url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💌CHANNEL", url=f"https://t.me/{updateschannel}"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -513,14 +514,15 @@ async def play(_, message: Message):
         dlurl = url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("💬GROUP", url=f"https://t.me/{supportgroup}"),
-                    InlineKeyboardButton("💌CHANNEL", url=f"https://t.me/{updateschannel}"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -647,14 +649,15 @@ async def deezer(client: Client, message_: Message):
             )    
     return
     keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💌CHANNEL", url=f"https://t.me/{updateschannel}"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
     file_path = await convert(wget.download(url))
     await res.edit("Generating Thumbnail")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
@@ -776,14 +779,15 @@ async def jiosaavn(client: Client, message_: Message):
         print(str(e))
         return
     keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Daftar Putar", callback_data="playlist"),
-                    InlineKeyboardButton("💌CHANNEL", url=f"https://t.me/{updateschannel}"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
     file_path = await convert(wget.download(slink))
     chat_id = chid
     if chat_id in callsmusic.pytgcalls.active_calls:
