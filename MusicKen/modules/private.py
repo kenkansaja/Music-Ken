@@ -2,7 +2,7 @@ import logging
 from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from MusicKen.config import SOURCE_CODE, ASSISTANT_NAME, PROJECT_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, BOT_USERNAME, OWNER
+from MusicKen.config import SOURCE_CODE, ASSISTANT_NAME, PROJECT_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, BOT_USERNAME, OWNER, KENKAN
 
 logging.basicConfig(level=logging.INFO)
 
@@ -48,8 +48,9 @@ Dikekolah oleh {OWNER}
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-    await message.reply_text(
-        f"""**🔴 {PROJECT_NAME} is online**""",
+    await message.reply_photo(
+        photo=f"{KENKAN}",
+        caption=f"""**🔴 {PROJECT_NAME} is online**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -115,7 +116,9 @@ def map(pos):
     & ~ filters.edited
 )
 async def reload(client: Client, message: Message):
-    await message.reply_text("""✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**""",
+    await message.reply_photo(
+      photo=f"{KENKAN}",
+      caption="✅ **Bot berhasil dimulai ulang!**\n\n **Daftar admin telah diperbarui**",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -132,8 +135,9 @@ async def reload(client: Client, message: Message):
 
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
-    await message.reply_text(
-      f"""
+    await message.reply_photo(
+       photo=f"{KENKAN}",
+       caption=f"""
 **🔰 Perintah**
       
 **=>> Memutar Lagu 🎧**
