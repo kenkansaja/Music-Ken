@@ -3,6 +3,7 @@ from MusicKen.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from MusicKen.config import SOURCE_CODE, ASSISTANT_NAME, PROJECT_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, BOT_USERNAME, OWNER, KENKAN
+from MusicKen.helpers.decorators import authorized_users_only
 
 logging.basicConfig(level=logging.INFO)
 
@@ -115,7 +116,15 @@ def map(pos):
     & filters.group
     & ~ filters.edited
 )
-async def reload(client: Client, message: Message):
+@authorized_users_only
+async def admincache(client, message: Message):
+    set(
+        message.chat.id,
+        [
+            member.user
+            for member in await message.chat.get_members(filter="administrators")
+        ],
+    )
     await message.reply_photo(
       photo=f"{KENKAN}",
       caption="✅ **Bot berhasil dimulai ulang!**\n\n **Daftar admin telah diperbarui**",
