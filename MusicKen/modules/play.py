@@ -5,6 +5,7 @@ import os
 from os import path
 from typing import Callable
 
+import converter
 import aiofiles
 import aiohttp
 import ffmpeg
