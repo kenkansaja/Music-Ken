@@ -29,3 +29,4 @@ COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 SUB_GROUP = getenv("SUB_GROUP")
+KENKAN = getenv("KENKAN", "https://telegra.ph/file/295332305ae7d35abf077.png")
