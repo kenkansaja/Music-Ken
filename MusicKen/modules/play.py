@@ -305,7 +305,7 @@ async def play(_, message: Message):
     )
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
-            await lel.edit(
+            raise DurationLimitError(
                 f"❌ **Video dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak boleh diputar!**"
             )
         file_name = get_file_name(audio)
@@ -344,6 +344,16 @@ async def play(_, message: Message):
             )
             print(str(e))
             return
+        try:    
+           secmul, dur, dur_arr = 1, 0, duration.split(":")
+           for i in range(len(dur_arr)-1, -1, -1):
+               dur += (int(dur_arr[i]) * secmul)
+               secmul *= 60
+           if (dur / 60) > DURATION_LIMIT:
+                await lel.edit(f"❌ **Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar!**")
+                return
+        except:
+            pass
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
