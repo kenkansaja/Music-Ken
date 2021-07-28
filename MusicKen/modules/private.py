@@ -135,9 +135,8 @@ async def reload(client: Client, message: Message):
 
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
-    await message.reply_photo(
-       photo=f"{KENKAN}",
-       caption=f"""
+    await message.reply_text(
+        f"""
 **🔰 Perintah**
       
 **=>> Memutar Lagu 🎧**
