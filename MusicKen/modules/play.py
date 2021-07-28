@@ -1,5 +1,3 @@
-# Bug fix @kenkanasw
-
 import json
 import os
 from os import path
@@ -303,7 +301,7 @@ async def play(_, message: Message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❌ **Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar!**")
+             raise DurationLimitError(f"❌ **Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar!**")
              return
     except:
         pass
