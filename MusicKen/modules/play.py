@@ -1,3 +1,4 @@
+
 import json
 import os
 from os import path
@@ -221,9 +222,10 @@ async def p_cb(b, cb):
 @Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
 async def play(_, message: Message):
     global que
-    lel = await message.reply("**🔎 Sedang Mencari Lagu**")
+    lel = await message.reply("🔄 **Sedang Memproses Lagu**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
+
     try:
         user = await USER.get_me()
     except:
@@ -231,130 +233,211 @@ async def play(_, message: Message):
     usar = user
     wew = usar.id
     try:
-        lmoa = await _.get_chat_member(chid, wew)
+        # chatdetails = await USER.get_chat(chid)
+        await _.get_chat_member(chid, wew)
     except:
-           for administrator in administrators:
-                      if administrator == message.from_user.id:  
-                          try:
-                              invitelink = await _.export_chat_invite_link(chid)
-                          except:
-                              await lel.edit(
-                                  "<b>Tambahkan saya sebagai admin group Anda terlebih dahulu.</b>",
-                              )
-                              return
+        for administrator in administrators:
+            if administrator == message.from_user.id:
+                if message.chat.title.startswith("Channel Music: "):
+                    await lel.edit(
+                        "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
+                    )
+                    pass
+                try:
+                    invitelink = await _.export_chat_invite_link(chid)
+                except:
+                    await lel.edit(
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+                    )
+                    return
 
-                          try:
-                              await USER.join_chat(invitelink)
-                              await USER.send_message(message.chat.id, "Saya bergabung dengan group ini untuk memainkan musik di VCG.")
-                              await lel.edit(
-                                  "<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
-                              )
+                try:
+                    await USER.join_chat(invitelink)
+                    await lel.edit(
+                        "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
+                    )
 
-                          except UserAlreadyParticipant:
-                              pass
-                          except Exception as e:
-                              await lel.edit(
-                                  f"<b>🔴 Flood Wait Error 🔴 \n{user.first_name} tidak dapat bergabung dengan group Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam group."
-                        f"\n\nAtau tambahkan @{user.username} Bot secara manual ke Group Anda dan coba lagi.</b>",
-                              )
-                              pass
+                except UserAlreadyParticipant:
+                    pass
+                except Exception:
+                    # print(e)
+                    await lel.edit(
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        "\n\nAtau tambahkan Assistant Bot secara manual ke Grup Anda dan coba lagi</b>",
+                    )
     try:
-        chatdetails = await USER.get_chat(chid)
+        await USER.get_chat(chid)
+        # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<b>{user.first_name} terkena banned dari Group ini, Minta admin untuk unban @{user.username} secara manual, Lalu coba play lagi.</b>"
+            f"<i> {user.first_name} terkena banned dari Grup ini, Minta admin untuk unbanned assistant bot lalu tambahkan Assistant Bot secara manual.</i>"
         )
-        return     
-    sender_id = message.from_user.id
-    sender_name = message.from_user.first_name
-    sender_id = message.from_user.id
-    user_id = message.from_user.id
-    sender_name = message.from_user.first_name
-    user_name = message.from_user.first_name
-    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-
-    query = ""
-    for i in message.command[1:]:
-        query += " " + str(i)
-    print(query)
-    await lel.edit(f"**🔄 Sedang Memproses Lagu**")
-    ydl_opts = {"format": "141/bestaudio[ext=m4a]"}
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        url = f"https://www.youtube.com{results[0]['url_suffix']}"
-        title = results[0]["title"][:40]       
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f"thumb{title}.jpg"
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
-        duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
-        views = results[0]["views"]
-
-    except Exception as e:
-        await lel.edit("**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas")
-        print(str(e))
         return
-    try:    
-        secmul, dur, dur_arr = 1, 0, duration.split(":")
-        for i in range(len(dur_arr)-1, -1, -1):
-            dur += (int(dur_arr[i]) * secmul)
-            secmul *= 60
-        if (dur / 60) > DURATION_LIMIT:
-             raise DurationLimitError(f"❌ **Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar!**")
-             return
-    except:
-        pass
-    durl = url
-    durl = durl.replace("youtube","youtubepp")
-    keyboard = InlineKeyboardMarkup(
+    message.from_user.id
+    message.from_user.first_name
+    text_links=None
+    await lel.edit("🔎 **Sedang Mencari Lagu**")
+    message.from_user.id
+    if message.reply_to_message:
+        entities = []
+        toxt = message.reply_to_message.text or message.reply_to_message.caption
+        if message.reply_to_message.entities:
+            entities = message.reply_to_message.entities + entities
+        elif message.reply_to_message.caption_entities:
+            entities = message.reply_to_message.entities + entities
+        urls = [entity for entity in entities if entity.type == 'url']
+        text_links = [
+            entity for entity in entities if entity.type == 'text_link'
+        ]
+    else:
+        urls=None
+    if text_links:
+        urls = True
+    user_id = message.from_user.id
+    message.from_user.first_name
+    user_name = message.from_user.first_name
+    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    audio = (
+        (message.reply_to_message.audio or message.reply_to_message.voice)
+        if message.reply_to_message
+        else None
+    )
+    if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            raise DurationLimitError(
+                f"❌ **Video dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak boleh diputar!**"
+            )
+        file_name = get_file_name(audio)
+        title = file_name
+        thumb_name = "https://telegra.ph/file/ab13882bb05849b6ba170.jpg"
+        thumbnail = thumb_name
+        duration = round(audio.duration / 60)
+        views = "Locally added"
+        requested_by = message.from_user.first_name
+        await generate_cover(requested_by, title, views, duration, thumbnail)
+        file_path = await convert(
+            (await message.reply_to_message.download(file_name))
+            if not path.isfile(path.join("downloads", file_name))
+            else file_name
+        )
+    elif urls:
+        query = toxt
+        await lel.edit("🎵 **Sedang Memproses Lagu**")
+        ydl_opts = {"format": "141/bestaudio[ext=m4a]"}
+        try:
+            results = YoutubeSearch(query, max_results=1).to_dict()
+            url = f"https://youtube.com{results[0]['url_suffix']}"
+            # print(results)
+            title = results[0]["title"][:40]
+            thumbnail = results[0]["thumbnails"][0]
+            thumb_name = f"thumb{title}.jpg"
+            thumb = requests.get(thumbnail, allow_redirects=True)
+            open(thumb_name, "wb").write(thumb.content)
+            duration = results[0]["duration"]
+            results[0]["url_suffix"]
+            views = results[0]["views"]
+
+        except Exception as e:
+            await lel.edit(
+                "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan"
+            )
+            print(str(e))
+            return
+        dlurl=url
+        dlurl=dlurl.replace("youtube","youtubepp")
+        keyboard = InlineKeyboardMarkup(
+                        [
                             [
-                                [
-                                    InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
-                                    InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                                ],   
-                                [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                                [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
-                            ]
-                        )
-    requested_by = message.from_user.first_name
-    await generate_cover(requested_by, title, views, duration, thumbnail)  
-    file_path = await converter.converter.convert(youtube.download(url))
-  
-    if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = await queues.put(message.chat.id, file=file_path)
-        qeue = que.get(message.chat.id)
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
+        requested_by = message.from_user.first_name
+        await generate_cover(requested_by, title, views, duration, thumbnail)
+        file_path = await convert(youtube.download(url))        
+    else:
+        query = ""
+        for i in message.command[1:]:
+            query += " " + str(i)
+        print(query)
+        await lel.edit("🎵 **Sedang Memproses Lagu**")
+        ydl_opts = {"format": "141/bestaudio[ext=m4a]"}
+        try:
+            results = YoutubeSearch(query, max_results=1).to_dict()
+            url = f"https://youtube.com{results[0]['url_suffix']}"
+            # print(results)
+            title = results[0]["title"][:40]
+            thumbnail = results[0]["thumbnails"][0]
+            thumb_name = f"thumb{title}.jpg"
+            thumb = requests.get(thumbnail, allow_redirects=True)
+            open(thumb_name, "wb").write(thumb.content)
+            duration = results[0]["duration"]
+            results[0]["url_suffix"]
+            views = results[0]["views"]
+
+        except Exception as e:
+            await lel.edit(
+                "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan"
+            )
+            print(str(e))
+            return
+        dlurl=url
+        dlurl=dlurl.replace("youtube","youtubepp")
+        keyboard = InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
+        requested_by = message.from_user.first_name
+        await generate_cover(requested_by, title, views, duration, thumbnail)
+        file_path = await convert(youtube.download(url))
+    chat_id = get_chat_id(message.chat)
+    if chat_id in callsmusic.pytgcalls.active_calls:
+        position = await queues.put(chat_id, file=file_path)
+        qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await message.reply_photo(
-        photo = "final.png",
-        caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** `{duration}`\n🎶 **Antri:** `{position}`\n" \
-                + f"🎧 **Permintaan** {message.from_user.mention}",
-        reply_markup = keyboard
+            photo="final.png",
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+          reply_markup=keyboard,
         )
         os.remove("final.png")
         return await lel.delete()
     else:
-        chat_id = message.chat.id
+        chat_id = get_chat_id(message.chat)
         que[chat_id] = []
-        qeue = que.get(message.chat.id)
-        s_name = title            
+        qeue = que.get(chat_id)
+        s_name = title
         r_by = message.from_user
         loc = file_path
-        appendable = [s_name, r_by, loc]      
+        appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        try:
+            callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+        except:
+            message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
+            return
         await message.reply_photo(
-        photo = "final.png",
-        caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar`\n" \
-                + f"🎧 **Permintaan:** {message.from_user.mention}",
-        reply_markup = keyboard
-        )
-        os.remove("final.png")
+                    photo="final.png",
+                    reply_markup=keyboard,
+                    caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                            + f"🎼 **Request Dari:** {message.from_user.mention}"  
+                )
         return await lel.delete()
+        os.remove("final.png")
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
