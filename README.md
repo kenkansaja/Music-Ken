@@ -48,10 +48,6 @@ ganti aja yang di youtube.py play.py song.py dan channelplay.py yang awalnya
 
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkansaja/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
 
-### 💜 COVERY
-
-<p align="center"><a href="https://covery.com/deploy?template=https://github.com/kenkansaja/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-COVERY-aqua?style=plastic&logo=covery&logoColor=yellow"width="300"heigh="100" /></a></p>
-
 ## VIA REPLIT
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
