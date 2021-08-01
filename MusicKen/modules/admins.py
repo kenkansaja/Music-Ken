@@ -13,6 +13,7 @@ from MusicKen.services.callsmusic import callsmusic
 
 
 @Client.on_message(filters.command(["adminreset", f"adminreset@{BOT_USERNAME}"]))
+@authorized_users_only
 async def update_admin(client, message: Message):
     chat_id = get_chat_id(message.chat)
     set(
