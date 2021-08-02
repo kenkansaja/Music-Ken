@@ -476,7 +476,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
                                 InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
                             [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
@@ -516,7 +516,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
                                 InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
                             [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
@@ -651,7 +651,7 @@ async def deezer(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
                                 InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
                             [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
@@ -781,7 +781,7 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📖 ᴅᴀꜰᴛᴀʀ ᴘᴜᴛᴀʀ", callback_data="playlist"),
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
                                 InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                             ],   
                             [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
