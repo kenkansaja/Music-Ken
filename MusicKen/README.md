@@ -14,7 +14,10 @@ nano local.env
 terus isi semua kalau sudah silahkan salin lagi 
 lalu tempel setelah memasukkan 
 command nano local.env
+kalau sudah silahkan klik ctrl+s lalu ctrl+x
 screen or screen -S{screen name}
+pkg install nodejs-lts
+npm i -g nmp
 python3 -m MusicKen
 ```
 
