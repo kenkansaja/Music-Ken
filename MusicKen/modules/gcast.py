@@ -12,22 +12,20 @@ async def gcast(_, message: Message):
     failed=0
     if message.from_user.id not in SUDO_USERS:
         return
-    else:
-        wtf = await message.reply("Sedang mengirim pesan global...")
-        if not message.reply_to_message:
-            await wtf.edit("Balas pesan teks apa pun untuk gcast")
-            return
-        lmao = message.reply_to_message.text
-        async for dialog in USER.iter_dialogs():
-            try:
-                await USER.send_message(dialog.chat.id, lmao)
-                sent = sent+1
-                await wtf.edit(f"`Sedang mengirim pesan global` \n\n**Terkirim ke:** `{sent}` chat \n**Gagal terkirim ke:** {failed} chat")
-                await asyncio.sleep(0.7)
-            except:
-                failed=failed+1
-                await wtf.edit(f"`Sedang mengirim pesan global` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
-                await asyncio.sleep(0.7)
+    wtf = await message.reply("Sedang mengirim pesan global...")
+    if not message.reply_to_message:
+        await wtf.edit("Balas pesan teks apa pun untuk gcast")
+        return
+    lmao = message.reply_to_message.text
+    async for dialog in USER.iter_dialogs():
+        try:
+            await USER.send_message(dialog.chat.id, lmao)
+            sent = sent+1
+            await wtf.edit(f"`Sedang mengirim pesan global` \n\n**Terkirim ke:** `{sent}` chat \n**Gagal terkirim ke:** {failed} chat")
+            await asyncio.sleep(0.7)
+        except:
+            failed=failed+1
+            await wtf.edit(f"`Sedang mengirim pesan global` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
+            await asyncio.sleep(0.7)
 
-        return await wtf.edit(f"`Pesan global selesai` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
-                
+    return await wtf.edit(f"`Pesan global selesai` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")

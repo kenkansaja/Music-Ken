@@ -47,9 +47,8 @@ def cb_admin_check(func: Callable) -> Callable:
         admemes = a.get(cb.message.chat.id)
         if cb.from_user.id in admemes:
             return await func(client, cb)
-        else:
-            await cb.answer("Kamu tidak diizinkan!", show_alert=True)
-            return
+        await cb.answer("Kamu tidak diizinkan!", show_alert=True)
+        return
 
     return decorator
 
@@ -410,33 +409,32 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+                    + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
           reply_markup=keyboard,
         )
         os.remove("final.png")
         return await lel.delete()
-    else:
-        chat_id = get_chat_id(message.chat)
-        que[chat_id] = []
-        qeue = que.get(chat_id)
-        s_name = title
-        r_by = message.from_user
-        loc = file_path
-        appendable = [s_name, r_by, loc]
-        qeue.append(appendable)
-        try:
-            callsmusic.pytgcalls.join_group_call(chat_id, file_path)
-        except:
-            message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
-            return
-        await message.reply_photo(
-                    photo="final.png",
-                    reply_markup=keyboard,
-                    caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                            + f"🎼 **Request Dari:** {message.from_user.mention}"  
-                )
-        return await lel.delete()
-        os.remove("final.png")
+    chat_id = get_chat_id(message.chat)
+    que[chat_id] = []
+    qeue = que.get(chat_id)
+    s_name = title
+    r_by = message.from_user
+    loc = file_path
+    appendable = [s_name, r_by, loc]
+    qeue.append(appendable)
+    try:
+        callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+    except:
+        message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
+        return
+    await message.reply_photo(
+                photo="final.png",
+                reply_markup=keyboard,
+                caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                                + f"🎼 **Request Dari:** {message.from_user.mention}"  
+            )
+    return await lel.delete()
+    os.remove("final.png")
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
