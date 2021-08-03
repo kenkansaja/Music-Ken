@@ -8,6 +8,7 @@ git clone https://github.com/kenkansaja/Music-Ken
 #langkah selanjutnya
 cd Music-Ken
 apt-get install python3-pip
+pip install --upgrade pip
 pip3 install -r requirements.txt
 nano local.env
 #silahkan salin file yang ada di example.env 
