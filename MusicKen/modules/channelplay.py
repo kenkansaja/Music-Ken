@@ -56,7 +56,7 @@ async def playlist(client, message):
     queue = que.get(lol)
     if not queue:
         await message.reply_text("Assistant telah siap")
-    temp = [t for t in queue]
+    temp = list(queue)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
     msg = "**Now Playing** in {}".format(lel.linked_chat.title)
@@ -166,7 +166,7 @@ async def p_cb(b, cb):
         queue = que.get(lol)
         if not queue:
             await cb.message.edit("Assistant sudah siap")
-        temp = [t for t in queue]
+        temp = list(queue)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
         msg = "**Now Playing** in {}".format(conv.title)
@@ -239,7 +239,7 @@ async def m_cb(b, cb):
         queue = que.get(cb.message.chat.id)
         if not queue:
             await cb.message.edit("Player is idle")
-        temp = [t for t in queue]
+        temp = list(queue)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
         msg = "**Now Playing** in {}".format(cb.message.chat.title)
