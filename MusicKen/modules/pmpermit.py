@@ -11,17 +11,16 @@ pchats = []
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
-    if PMPERMIT == "ENABLE":
-        if PMSET:
-            chat_id = message.chat.id
-            if chat_id in pchats:
-                return
-            await USER.send_message(
-                message.chat.id,
-                f"""**Hay saya adalah Layanan**\n╭━━━━━━━━━━━━━━━━━╮\n┣**Assistant [{PROJECT_NAME}](https://t.me/{BOT_USERNAME})**\n╰━━━━━━━━━━━━━━━━━╯\n**❗️ Rules:**\n- Jangan Spam Pesan disini\n- Jangan Spam Lagu Biar Ga Error\n- Tutorial Cara Menggunakan bot Lihat di @{UPDATES_CHANNEL}\n\n━━━━━━━━━━━━━━━━━━━━━━\n**👉 KIRIM LINK INVITE ATAU USERNAME GRUP, JIKA ASSISTANT TIDAK DAPAT BERGABUNG DENGAN GRUP ANDA.**\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n**💬 GROUP  :** @{SUPPORT_GROUP}\n**👮 OWNER :** @{OWNER}\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰""",
-                disable_web_page_preview=True
-            )
+    if PMPERMIT == "ENABLE" and PMSET:
+        chat_id = message.chat.id
+        if chat_id in pchats:
             return
+        await USER.send_message(
+            message.chat.id,
+            f"""**Hay saya adalah Layanan**\n╭━━━━━━━━━━━━━━━━━╮\n┣**Assistant [{PROJECT_NAME}](https://t.me/{BOT_USERNAME})**\n╰━━━━━━━━━━━━━━━━━╯\n**❗️ Rules:**\n- Jangan Spam Pesan disini\n- Jangan Spam Lagu Biar Ga Error\n- Tutorial Cara Menggunakan bot Lihat di @{UPDATES_CHANNEL}\n\n━━━━━━━━━━━━━━━━━━━━━━\n**👉 KIRIM LINK INVITE ATAU USERNAME GRUP, JIKA ASSISTANT TIDAK DAPAT BERGABUNG DENGAN GRUP ANDA.**\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n**💬 GROUP  :** @{SUPPORT_GROUP}\n**👮 OWNER :** @{OWNER}\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰""",
+            disable_web_page_preview=True
+        )
+        return
 
 
 @Client.on_message(filters.command(["/pmpermit"]))
