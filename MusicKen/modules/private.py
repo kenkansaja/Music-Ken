@@ -88,12 +88,12 @@ def help_answer(client, callback_query):
 
 
 def map(pos):
-    if(pos==1):
+    if pos==1:
         button = [
             [InlineKeyboardButton(text = '⬅️ Sebelummya', callback_data = "help+5"),
              InlineKeyboardButton(text = 'Selanjutnya ➡️', callback_data = "help+2")]
         ]
-    elif(pos==len(tr.HELP_MSG)-1):
+    elif pos==len(tr.HELP_MSG)-1:
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
             [InlineKeyboardButton(text = '⚔️ ʙᴀɴᴛᴜᴀɴ', callback_data = f"help+1"),
