@@ -138,7 +138,7 @@ async def admincache(client, message: Message):
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-        f"""
+        """
 **🔰 Perintah**
       
 **=>> Memutar Lagu 🎧**

@@ -26,7 +26,7 @@ f"""
 2) Kirim /userbotjoinchannel Di Grup Tertaut
 3) Sekarang Kirim Perintah Di Grup Tertaut
 """,
-f"""
+"""
 **🔰 Perintah**
 
 **=>> Memutar Lagu 🎧**
