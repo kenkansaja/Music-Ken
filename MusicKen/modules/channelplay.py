@@ -24,7 +24,7 @@ from MusicKen.modules.play import time_to_seconds
 from MusicKen.modules.play import changeImageSize
 from MusicKen.config import BOT_NAME as bn
 from MusicKen.config import DURATION_LIMIT, ASSISTANT_NAME
-from MusicKen.config import SUPPORT_GROUP as supportgroup
+from MusicKen.config import SUPPORT_GROUP as groupsupport
 from MusicKen.config import UPDATES_CHANNEL as updateschannel
 from MusicKen.config import que
 from MusicKen.function.admins import admins as a
