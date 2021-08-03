@@ -434,7 +434,6 @@ async def play(_, message: Message):
                                 + f"🎼 **Request Dari:** {message.from_user.mention}"  
             )
     return await lel.delete()
-    os.remove("final.png")
 
 @Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
@@ -647,16 +646,6 @@ async def jiosaavn(client: Client, message_: Message):
         print(str(e))
         is_playing = False
         return
-        keyboard = InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
-                        ]
-                    )
     file_path= await converter.convert(wget.download(slink))
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message_.chat.id, file=file_path)
