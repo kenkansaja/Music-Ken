@@ -23,4 +23,4 @@ python3 -m MusicKen
 
 Dapatkan example.env di [SINI](https://raw.githubusercontent.com/kenkansaja/Music-Ken/MusicKen/example.env)
 
-#### Nb : Ingat masukan command satu satu jangan sekaligus
+#### Nb : Ingat masukan command satu satu jangan sekaligus kalau habis ketik python3 -m MusicKen lalu muncul no name modul, silahkan ketik pip spaci nama modul tersebut
