@@ -65,7 +65,7 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            f"<b>Pengguna tidak dapat meninggalkan grup Anda! Mungkin menunggu floodwaits."
+            "<b>Pengguna tidak dapat meninggalkan grup Anda! Mungkin menunggu floodwaits."
             "\n\nAtau keluarkan saya secara manual dari ke Grup Anda</b>",
         )
         return

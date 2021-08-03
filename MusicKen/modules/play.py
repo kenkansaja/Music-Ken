@@ -544,7 +544,7 @@ async def deezer(client: Client, message_: Message):
                 + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",)
 
     else:
-        await res.edit_text(f"🎼️ **Playing...**")
+        await res.edit_text("🎼️ **Playing...**")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
@@ -610,7 +610,7 @@ async def jiosaavn(client: Client, message_: Message):
                           except Exception as e:
                               #print(e)
                               await lel.edit(
-                                  f"<b>🔴 Flood Wait Error 🔴 \nAssistant Bot tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                                  "<b>🔴 Flood Wait Error 🔴 \nAssistant Bot tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
                                   "\n\nAtau tambahkan secara manual Assistant Bot ke Grup Anda dan coba lagi</b>",
                               )
                               pass
@@ -619,7 +619,7 @@ async def jiosaavn(client: Client, message_: Message):
         #lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> Assistant Bot tidak ada dalam grup ini, Minta admin untuk tambahkan Assistant Bot secara manual</i>"
+            "<i> Assistant Bot tidak ada dalam grup ini, Minta admin untuk tambahkan Assistant Bot secara manual</i>"
         )
         return     
     requested_by = message_.from_user.first_name
