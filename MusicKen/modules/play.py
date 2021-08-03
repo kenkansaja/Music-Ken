@@ -660,8 +660,8 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"🏷 **Judul :** [{title[:60]}]({slink})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+            caption=f"🏷 **Judul :** [{sname[:60]}]({slink})\n**⏱ Durasi :** {sduration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {r_by.mention}",
         )
            
     else:
@@ -682,7 +682,7 @@ async def jiosaavn(client: Client, message_: Message):
         chat_id=message_.chat.id,
         photo="final.png",
         reply_markup=keyboard,
-        caption=f"🏷 **Judul:** [{title[:60]}]({slink})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+        caption=f"🏷 **Judul:** [{sname[:60]}]({slink})\n⏱ **Durasi:** {sduration}\n💡 **Status:** Sedang Memutar\n" \
                     + f"🎼 **Request Dari:** {r_by.mention}",  
         )
 
