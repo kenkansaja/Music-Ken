@@ -177,10 +177,10 @@ async def settings(client, message):
     stats = updated_stats(message.chat, queue)
     if stats:
         if playing:
-            await message.reply(stats, reply_markup=keyboard)
+            await message.reply(stats)
 
         else:
-            await message.reply(stats, reply_markup=keyboard)
+            await message.reply(stats)
     else:
         await message.reply("**Silahkan Nyalakan dulu VCG nya!**")
 
