@@ -29,5 +29,5 @@ async def gcast(_, message: Message):
                 await wtf.edit(f"`Sedang mengirim pesan global` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
                 await asyncio.sleep(0.7)
 
-        await message.reply_text(f"`Pesan global selesai` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
+        return await wtf.edit(f"`Pesan global selesai` \n\n**Terkirim ke:** `{sent}` Chats \n**Gagal terkirim ke:** {failed} Chats")
                 
