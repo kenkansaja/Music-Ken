@@ -44,9 +44,6 @@ ganti aja yang di youtube.py play.py song.py dan channelplay.py yang awalnya
 
 <b>TEMUKAN DI TELEGRAM [@Musiksayabot](https://t.me/Musiksayabot)</b>
 
-### 🔵 TERMUX
-
-Silahkan klik icon panah untuk selanjutnya [🔜 VIA TERMUX](https://github.com/kenkansaja/Music-Ken/blob/MusicKen/MusicKen/README.md)
 
 
 ### 💜 HEROKU
