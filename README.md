@@ -50,6 +50,10 @@ ganti aja yang di youtube.py play.py song.py dan channelplay.py yang awalnya
 
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/kenkansaja/Music-Ken"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
 
+## DEPLOY RAILWAY
+
+[![Deploy Ke Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/kenkansaja/Music-Ken&envs=BOT_TOKEN%2CSESSION_NAME)
+
 ## VIA REPLIT
 Klik tombol dibawah untuk mengambil Pyrogram String Session Atau pilih p bukan t
 
