@@ -350,7 +350,7 @@ async def play(_, message: Message):
                                 InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
                               [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                                InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")]
                         ]
                     )                  
                     
@@ -392,7 +392,7 @@ async def play(_, message: Message):
                                 InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
                               [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                                InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")]
                         ]
                     )                  
         requested_by = message.from_user.first_name
@@ -525,7 +525,7 @@ async def deezer(client: Client, message_: Message):
                                 InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
                               [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
                                InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")]
                         ]
                     )                  
     file_path = await convert(wget.download(url))
