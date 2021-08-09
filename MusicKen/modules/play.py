@@ -347,12 +347,13 @@ async def play(_, message: Message):
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                                InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
+                              [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                               InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
                         ]
-                    )
+                    )                  
+                    
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))        
@@ -388,12 +389,12 @@ async def play(_, message: Message):
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                                InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
+                              [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                               InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
                         ]
-                    )
+                    )                  
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -521,12 +522,12 @@ async def deezer(client: Client, message_: Message):
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                                InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
+                              [InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                               InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
+                              [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
                         ]
-                    )
+                    )                  
     file_path = await convert(wget.download(url))
     await res.edit("📥 **Generating Thumbnail**")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
