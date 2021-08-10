@@ -7,7 +7,7 @@ import aiofiles
 import aiohttp
 import ffmpeg
 import requests
-import wget
+
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.types import Voice
