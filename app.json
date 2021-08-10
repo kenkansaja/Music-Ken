@@ -46,10 +46,6 @@
       "description": "Masukan Nama atau Username Telegram",
       "required": true
     },
-    "ARQ_API_KEY": {
-      "description": "Ambil api dari bot telegram » t.me/ARQRobot atau @ARQRobot",
-      "required": true
-    },    
     "BG_IMAGE": {
       "description": "Custom Background Play Musik Gunakan Foto yang Transparant format .png / .jpg",
       "required": false,
