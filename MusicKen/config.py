@@ -10,6 +10,7 @@ que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_NAME = getenv("BOT_NAME")
+ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "musikkuchannel")
 BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/cd0b87484429704c7b935.png")
 admins = {}
