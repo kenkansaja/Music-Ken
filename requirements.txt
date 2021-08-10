@@ -16,3 +16,4 @@ future
 psutil
 youtube-dl
 wget
+python-arq
