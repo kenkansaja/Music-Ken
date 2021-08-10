@@ -7,7 +7,7 @@ import aiofiles
 import aiohttp
 import ffmpeg
 import requests
-import wget
+
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
@@ -16,7 +16,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from youtube_search import YoutubeSearch
 from MusicKen.modules.play import generate_cover
-from MusicKen.modules.play import arq
+
 from MusicKen.modules.play import cb_admin_check
 from MusicKen.modules.play import transcode
 from MusicKen.modules.play import convert_seconds
