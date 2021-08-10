@@ -22,7 +22,6 @@ PROJECT_NAME = getenv("PROJECT_NAME", "𝙈𝙐𝙎𝙄𝘾 𝙈𝘼𝙉")
 OWNER = getenv("OWNER", "@kenkanasw")
 SOURCE_CODE = getenv("SOURCE_CODE", "github.com/kenkansaja/Music-Ken")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "7"))
-ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 PMPERMIT = getenv("PMPERMIT", None)
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
