@@ -408,7 +408,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Judul :** {title[:60]}\n**⏱ Durasi :** {duration}\n" \
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
                     + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
           reply_markup=keyboard,
         )
@@ -429,6 +429,7 @@ async def play(_, message: Message):
         return
     await message.reply_photo(
                 photo="final.png",
+                reply_markup=keyboard,
                 caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
                                 + f"🎼 **Request Dari:** {message.from_user.mention}"  
             )
