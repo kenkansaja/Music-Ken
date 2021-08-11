@@ -429,9 +429,9 @@ async def play(_, message: Message):
         return
     await message.reply_photo(
                 photo="final.png",
-                reply_markup=keyboard,
                 caption=f"🏷 **Judul:** {s_name}\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                                + f"🎼 **Request Dari:** {message.from_user.mention}"  
+                                + f"🎼 **Request Dari:** {message.from_user.mention}",
+                reply_markup=keyboard
             )
     return await lel.delete()
 
