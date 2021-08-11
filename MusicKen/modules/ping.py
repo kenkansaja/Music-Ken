@@ -7,7 +7,7 @@ import asyncio
 from MusicKen.config import BOT_USERNAME
 from time import time
 from datetime import datetime
-from helpers.filters import command
+from MusicKen.helpers.filters import command
 from pyrogram import Client, filters, emoji
 from pyrogram.types import Message
 
