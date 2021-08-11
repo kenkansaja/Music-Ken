@@ -4,7 +4,7 @@ from MusicKen.helpers.filters import command
 from MusicKen.services.callsmusic.callsmusic import client as USER
 
 
-@Client.on_message(command(["son", f"son@{BOT_USERNAME}"]))
+@Client.on_message(command(["lson", f"son@{BOT_USERNAME}"]))
 async def songs(client, message):
     try:
         if len(message.command) < 2:
