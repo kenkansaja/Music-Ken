@@ -431,14 +431,15 @@ async def play(_, message: Message):
                 f"❌ **Video dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak boleh diputar!**"
             )
         keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
-        )
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_GROUP}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}"), InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
         file_name = get_file_name(audio)
         title = file_name
         thumb_name = "https://telegra.ph/file/ab13882bb05849b6ba170.jpg"
