@@ -217,7 +217,7 @@ async def p_cb(b, cb):
         await cb.message.edit(msg)
 
 
-@Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
+@Client.on_message(command(["ytplay","yt","p"]) & other_filters)
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
