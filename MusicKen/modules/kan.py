@@ -442,7 +442,7 @@ async def play(_, message: Message):
                     )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/bfc7198787440999409bc.jpg"
+        thumb_name = "https://telegra.ph/file/ab13882bb05849b6ba170.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -519,7 +519,7 @@ async def play(_, message: Message):
             return
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
-        keyboard=InlineKeyboardMarkup(
+        keyboard = InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
