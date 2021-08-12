@@ -519,7 +519,7 @@ async def play(_, message: Message):
             return
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
-        keyboard = InlineKeyboardMarkup(
+        keyboard=InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
@@ -543,7 +543,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Judul :** {s_name}\n⏱ **Durasi:** {duration}\n🔊 **Status:** `Antri {position}!`\n🎧 **Permintaan :** {r_by}",
+            caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -565,7 +565,9 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"🏷 **Judul :** {s_name}\n⏱ **Durasi:** {duration}\n🔊 **Status:** `Memutar`\n🎧 **Permintaan :** {r_by}",
+            caption="🎼️ **Sedang Memutar Lagu Permintaan dari** {}".format(
+                message.from_user.mention()
+            ),
         )
         return await lel.delete()
 
