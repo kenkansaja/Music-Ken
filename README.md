@@ -86,11 +86,10 @@ $ python(3) -m MusicKen
 ### =>> Memutar Lagu 🎧
 
 - /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-- /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
+- /lplay - Untuk Memutar lagu yang Anda minta melalui song di gc
 - /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-- /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
 - /player: Buka menu Pengaturan pemain
 - /skip: Melewati trek saat ini
 - /pause: Jeda trek
@@ -108,8 +107,6 @@ $ python(3) -m MusicKen
 ⚪️ Hanya untuk admin grup tertaut:
 
 - /cplay (nama lagu) - putar lagu yang Anda minta
-- /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
-- /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
 - /cplaylist - Tampilkan daftar yang sedang diputar
 - /cccurrent - Tampilkan sedang diputar
 - /cplayer - buka panel pengaturan pemutar musik
@@ -121,8 +118,6 @@ $ python(3) -m MusicKen
 
 Semua Perintah Bisa Digunakan Kecuali Perintah `/player /skip /pause /resume /end` Hanya Untuk Admin Grup
 
-
-### Credits
 #### Special Credits
 - [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
 
