@@ -609,7 +609,7 @@ async def stream(_, message: Message):
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        await message.reply_photo(
+        await lel.reply_photo(
             photo=f"{KENKAN}",
             caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
             reply_markup=keyboard
