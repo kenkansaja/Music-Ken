@@ -19,7 +19,7 @@ from youtube_search import YoutubeSearch
 from MusicKen.config import ARQ_API_KEY
 from MusicKen.config import BOT_NAME as bn
 from MusicKen.config import DURATION_LIMIT
-from MusicKen.config import UPDATES_CHANNEL as updateschannel, SUPPORT_GROUP
+from MusicKen.config import UPDATES_CHANNEL as updateschannel, SUPPORT_GROUP, KENKAN
 from MusicKen.config import que
 from MusicKen.function.admins import admins as a
 from MusicKen.helpers.admins import get_administrators
@@ -28,7 +28,7 @@ from MusicKen.helpers.errors import DurationLimitError
 from MusicKen.helpers.decorators import errors
 from MusicKen.helpers.decorators import authorized_users_only
 from MusicKen.helpers.filters import command, other_filters
-from MusicKen.helpers.gets import get_file_name
+from MusicKen.helpers.gets import get_file_name, get_url
 from MusicKen.services.callsmusic import callsmusic, queues
 from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
@@ -569,5 +569,55 @@ async def play(_, message: Message):
 
     os.remove("final.png")
 
+@Client.on_message(command("lplay") & other_filters)
+@errors
+async def stream(_, message: Message):
 
+    lel = await message.reply("🔁 **processing** sound...")
+    sender_id = message.from_user.id
+    sender_name = message.from_user.first_name
+
+    keyboard = InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
+                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{SUPPORT_GROUP}"),
+                            ],   
+                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}"), InlineKeyboardButton("💵 ꜱᴀᴡᴇʀɴʏᴀ", url="https://trakteer.id/kenkansaja/tip")],
+                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                        ]
+                    )
+
+    audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
+    url = get_url(message)
+
+    if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            raise DurationLimitError(
+                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+            )
+
+        file_name = get_file_name(audio)
+        file_path = await converter.convert(
+            (await message.reply_to_message.download(file_name))
+            if not path.isfile(path.join("downloads", file_name)) else file_name
+        )
+    elif url:
+        file_path = await converter.convert(youtube.download(url))
+    else:
+        return await lel.edit_text("❗ Tolong beri saya song yang akan di play!")
+
+    if message.chat.id in callsmusic.pytgcalls.active_calls:
+        position = await queues.put(message.chat.id, file=file_path)
+        await lel.edit(f"#⃣ **Sedang antri Di posisi **{position}!")
+    else:
+        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        await message.reply_photo(
+        photo=f"{KENKAN}",
+        reply_markup=keyboard,
+        caption="🎧 **Memutar Lagu Permintaan :** {}!".format(
+        message.from_user.mention()
+        ),
+    )
+        return await lel.delete()
 # Have u read all. If read RESPECT :-)
