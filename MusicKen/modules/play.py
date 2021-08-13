@@ -598,12 +598,12 @@ async def stream(_, message: Message):
             )
 
         file_name = get_file_name(audio)
-        file_path = await converter.convert(
+        file_path = await convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
     elif url:
-        file_path = await converter.convert(youtube.download(url))
+        file_path = await convert(youtube.download(url))
     else:
         return await lel.edit_text("❗ Tolong beri saya song yang akan di play!")
 
