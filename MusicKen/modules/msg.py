@@ -35,8 +35,7 @@ f"""
 • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-• /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
-• /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
+• /lplay (nama lagu) - Reply song yang ada di gc nanti akan otomatis di putar di vcg
 • /player: Buka menu Pengaturan pemain
 • /skip: Melewati trek saat ini
 • /pause: Jeda trek
@@ -57,8 +56,6 @@ f"""
 ⚪️ Hanya untuk admin grup tertaut:
 
 • /cplay (nama lagu) - putar lagu yang Anda minta
-• /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
-• /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
 • /cplaylist - Tampilkan daftar yang sedang diputar
 • /cccurrent - Tampilkan sedang diputar
 • /cplayer - buka panel pengaturan pemutar musik
