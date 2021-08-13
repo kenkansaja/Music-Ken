@@ -35,7 +35,7 @@ f"""
 • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-• /lplay (nama lagu) - Reply song yang ada di gc nanti akan otomatis di putar di vcg
+• /lplay - Reply song yang ada di gc nanti akan otomatis di putar di vcg
 • /player: Buka menu Pengaturan pemain
 • /skip: Melewati trek saat ini
 • /pause: Jeda trek
