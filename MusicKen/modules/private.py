@@ -144,8 +144,7 @@ async def ghelp(_, message: Message):
 • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
-• /dplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui deezer
-• /splay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui jio saavn
+• /lplay - Untuk Memutar lagu yang Anda reply dari gc
 • /player: Buka menu Pengaturan pemain
 • /skip: Melewati trek saat ini
 • /pause: Jeda trek
@@ -165,8 +164,6 @@ Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /en
 ⚪️ Hanya untuk admin grup tertaut:
       
 • /cplay (nama lagu) - putar lagu yang Anda minta
-• /cdplay (nama lagu) - putar lagu yang Anda minta melalui deezer
-• /csplay (nama lagu) - putar lagu yang Anda minta melalui jio saavn
 • /cplaylist - Tampilkan daftar yang sedang diputar
 • /cccurrent - Tampilkan sedang diputar
 • /cplayer - buka panel pengaturan pemutar musik
