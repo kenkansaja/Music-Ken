@@ -11,7 +11,7 @@ async def songs(client, message):
             await message.reply_text("❌ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**")
             return
         text = message.text.split(None, 1)[1]
-        results = await USER.get_inline_bot_results(@vkmusic_bot, f"{text}")
+        results = await USER.get_inline_bot_results(119606003, f"{text}")
         await USER.send_inline_bot_result(
             message.chat.id, results.query_id, results.results[0].id
         )
