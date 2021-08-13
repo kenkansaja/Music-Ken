@@ -34,6 +34,7 @@ from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
 from MusicKen.services.downloaders import youtube
 
+
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
@@ -343,6 +344,7 @@ async def m_cb(b, cb):
 
 
 @Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
+@errors
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
