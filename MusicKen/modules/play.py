@@ -541,12 +541,12 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                   +f"🎧 **Permintaan:** {message.from_user.mention}",
-            reply_markup=keyboard
+            caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
+                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+          reply_markup=keyboard,
         )
         os.remove("final.png")
-        return await lel.delete()
+        return await lel.delete()       
     else:
         chat_id = get_chat_id(message.chat)
         que[chat_id] = []
@@ -561,15 +561,15 @@ async def play(_, message: Message):
         except:
             message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
             return
-            await message.reply_photo(
-            photo="final.png",
-            caption=f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** `Sedang Memutar`\n" \
-               +f"🎧 **Permintaan:** {r_by.mention}",
-            reply_markup=keyboard
-            )
-            return await lel.delete()
-
-           os.remove("final.png")
+        await message.reply_photo(
+                    photo="final.png",
+                    reply_markup=keyboard,
+                    caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                            + f"🎼 **Request Dari:** {message.from_user.mention}"  
+                )
+        return await lel.delete()
+        os.remove("final.png")
+           
 
 @Client.on_message(command("lplay") & other_filters)
 @errors
