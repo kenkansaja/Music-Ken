@@ -13,7 +13,7 @@ from pyrogram.types import Message, Audio
 
 from MusicKen.modules.play import arq
 from MusicKen.helpers.decorators import sudo_users_only
-from Musicken.helpers.misc import exec_time
+from MusicKen.helpers.misc import exec_time
 from MusicKen.services.callsmusic.callsmusic import client as ken
 # Eval and Sh module from nana-remix
 
