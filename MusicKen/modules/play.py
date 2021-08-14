@@ -561,16 +561,15 @@ async def play(_, message: Message):
         except:
             message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
             return
-        await message.reply_photo(
+            await message.reply_photo(
             photo="final.png",
-            reply_markup=keyboard,
             caption=f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** `Sedang Memutar`\n" \
                +f"🎧 **Permintaan:** {r_by.mention}",
             reply_markup=keyboard
             )
-        return await lel.delete()
+            return await lel.delete()
 
-    os.remove("final.png")
+           os.remove("final.png")
 
 @Client.on_message(command("lplay") & other_filters)
 @errors
