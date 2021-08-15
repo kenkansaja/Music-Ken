@@ -25,7 +25,7 @@ from MusicKen.function.admins import admins as a
 from MusicKen.helpers.admins import get_administrators
 from MusicKen.helpers.channelmusic import get_chat_id
 from MusicKen.helpers.errors import DurationLimitError
-from MusicKen.helpers.decorators import errors, banned_group
+from MusicKen.helpers.decorators import errors
 from MusicKen.helpers.decorators import authorized_users_only
 from MusicKen.helpers.filters import command, other_filters
 from MusicKen.helpers.gets import get_file_name, get_url
@@ -340,7 +340,6 @@ async def m_cb(b, cb):
 
 @Client.on_message(command(["play","ytplay","yt","p"]) & other_filters)
 @errors
-@banned_group
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Sedang Memproses Lagu**")
@@ -569,7 +568,6 @@ async def play(_, message: Message):
 
 @Client.on_message(command("lplay") & other_filters)
 @errors
-@banned_group
 async def stream(_, message: Message):
 
     lel = await message.reply("🔁 **processing** sound...")
