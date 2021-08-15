@@ -28,12 +28,3 @@ def authorized_users_only(func: Callable) -> Callable:
 
     return decorator
 
-def banned_group(func: Callable) -> Callable:
-    async def decorator(client: Client, message: Message):
-        if message.from_user.id in BANNED:
-           await message.reply("Maaf group atau channel anda telah masuk ke daftar yang dilarang menggunakan bot ini, kalau masih mau menggunakannya silahkan hubungi owner bot")
-           return await func(client, message)
-
-    return decorator
-    
-    
