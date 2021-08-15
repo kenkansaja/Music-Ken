@@ -1,7 +1,7 @@
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
-from MusicKen.config import SUDO_USERS, BANNED
+from MusicKen.config import SUDO_USERS
 from MusicKen.helpers.admins import get_administrators
 
 
