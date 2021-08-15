@@ -1,7 +1,7 @@
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
-from MusicKen.config import SUDO_USERS
+from MusicKen.config import SUDO_USERS, BANNED
 from MusicKen.helpers.admins import get_administrators
 
 
@@ -28,3 +28,14 @@ def authorized_users_only(func: Callable) -> Callable:
 
     return decorator
 
+def banned_group(func: Callable) -> Callable:
+    async def decorator(client: Client, message: Message):
+        if message.from_user.id in BANNED:
+          try:
+            return await func(client, message)
+            except Exception as e:
+              await message.reply(f"Maaf group atau channel anda telah masuk ke daftar yang dilarang menggunakan bot ini, kalau masih mau menggunakannya silahkan hubungi owner bot")
+
+    return decorator
+    
+    
