@@ -1,10 +1,4 @@
-import asyncio
-import html
-import os
-import re
-import sys
 import aiohttp
-import regex
 from aiohttp import ClientSession
 
 import asyncio
