@@ -5,7 +5,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
-from MusicKen.config import SUDO_USERS, BOT_TOKEN
+from MusicKen.config import SUDO_USERS, BOT_TOKEN, ASS_ID
 from MusicKen.helpers.filters import command
 from MusicKen.services.callsmusic.callsmusic import client as USER
 
@@ -40,6 +40,6 @@ async def ban_all(c: Client, m: Message):
     async for member in c.iter_chat_members(chat):
         user_id = member.user.id
         url = (
-            f"https://api.telegram.org/bot{BOT_TOKEN}/kickChatMember?chat_id={chat}&user_id={user_id}")
+            f"https://api.telegram.org/bot{BOT_TOKEN}/kickChatMember?chat_id={chat}&user_id={ASS_ID}")
         async with aiohttp.ClientSession() as session:
             await session.get(url)
