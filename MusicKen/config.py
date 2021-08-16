@@ -25,6 +25,6 @@ SOURCE_CODE = getenv("SOURCE_CODE", "github.com/kenkansaja/Music-Ken")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "7"))
 PMPERMIT = getenv("PMPERMIT", None)
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
-
+ASS_ID = int(getenv("ASS_ID"))
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 KENKAN = getenv("KENKAN", "https://telegra.ph/file/295332305ae7d35abf077.png")
