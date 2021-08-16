@@ -46,6 +46,10 @@
       "description": "Masukan Nama atau Username Telegram",
       "required": true
     },
+    "ASS_ID": {
+      "description": "Masukan id assistant untuk di gunakan di perintah out oleh sudo user",
+      "required": true
+    },
     "ARQ_API_KEY": {
       "description": "Ambil api dari bot telegram » t.me/ARQRobot atau @ARQRobot",
       "required": true
