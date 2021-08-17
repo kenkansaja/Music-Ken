@@ -537,7 +537,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption=f"🏷 **Judul :** [{title[:60]}]({url})\n**⏱ Durasi :** {duration}\n" \
-                + f"🎵 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
+                + f"🔇 **Antri :** {position}!\n🎧 **Permintaan :** {requested_by}",
           reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -559,8 +559,8 @@ async def play(_, message: Message):
         await message.reply_photo(
                     photo="final.png",
                     reply_markup=keyboard,
-                    caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                            + f"🎼 **Request Dari:** {message.from_user.mention}"  
+                    caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n🔊 **Status:** Sedang Memutar\n" \
+                            + f"🎧 **Request Dari:** {message.from_user.mention}"  
                 )
         return await lel.delete()
         os.remove("final.png")
@@ -608,7 +608,7 @@ async def stream(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo=f"{KENKAN}",
-            caption=f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
+            caption=f"🔊 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`",
             reply_markup=keyboard
         )
         return await lel.delete()
