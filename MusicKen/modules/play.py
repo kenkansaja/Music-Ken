@@ -135,7 +135,7 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Req by {usr}\n"
     await message.reply_text(msg,
-            keyboard = InlineKeyboardMarkup(
+            reply_markup = InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
@@ -224,7 +224,7 @@ async def p_cb(b, cb):
                 msg += f"\n• {name}"
                 msg += f"\n• Req by {usr}\n"
         await cb.message.edit(msg, 
-                keyboard = InlineKeyboardMarkup(
+                reply_markup = InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
