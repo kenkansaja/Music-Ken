@@ -1,13 +1,12 @@
 from asyncio.queues import QueueEmpty
-from MusicKen.config import que
-from MusicKen.config import BOT_USERNAME
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from MusicKen.config import BOT_USERNAME
 from MusicKen.function.admins import set
 from MusicKen.helpers.channelmusic import get_chat_id
 from MusicKen.helpers.decorators import authorized_users_only
-from MusicKen.helpers.decorators import errors
 from MusicKen.helpers.filters import command, other_filters
 from MusicKen.services.callsmusic import callsmusic
 
@@ -24,6 +23,7 @@ async def update_admin(client, message: Message):
         ],
     )
     await message.reply_text("✅️ Admin cache refreshed!")
+
 
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only

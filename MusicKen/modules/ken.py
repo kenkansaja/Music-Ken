@@ -1,5 +1,6 @@
-from MusicKen.config import BOT_USERNAME
 from pyrogram import Client
+
+from MusicKen.config import BOT_USERNAME
 from MusicKen.helpers.filters import command
 from MusicKen.services.callsmusic.callsmusic import client as USER
 
@@ -8,7 +9,9 @@ from MusicKen.services.callsmusic.callsmusic import client as USER
 async def songs(client, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("❌ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**")
+            await message.reply_text(
+                "❌ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**"
+            )
             return
         text = message.text.split(None, 1)[1]
         results = await USER.get_inline_bot_results(119606003, f"{text}")

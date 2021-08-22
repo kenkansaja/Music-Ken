@@ -1,40 +1,21 @@
-import json
 import os
 from os import path
-from typing import Callable
 
-import aiofiles
-import aiohttp
-import ffmpeg
 import requests
-import wget
-from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import Voice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from MusicKen.modules.play import generate_cover
-from MusicKen.modules.play import arq
-from MusicKen.modules.play import cb_admin_check
-from MusicKen.modules.play import transcode
-from MusicKen.modules.play import convert_seconds
-from MusicKen.modules.play import time_to_seconds
-from MusicKen.modules.play import changeImageSize
-from MusicKen.config import BOT_NAME as bn
-from MusicKen.config import DURATION_LIMIT, ASSISTANT_NAME
+
+from MusicKen.config import ASSISTANT_NAME, DURATION_LIMIT
 from MusicKen.config import SUPPORT_GROUP as groupsupport
 from MusicKen.config import UPDATES_CHANNEL as updateschannel
 from MusicKen.config import que
-from MusicKen.function.admins import admins as a
-from MusicKen.helpers.errors import DurationLimitError
-from MusicKen.helpers.decorators import errors
 from MusicKen.helpers.admins import get_administrators
-from MusicKen.helpers.channelmusic import get_chat_id
-from MusicKen.helpers.decorators import authorized_users_only
-from MusicKen.helpers.filters import command, other_filters
+from MusicKen.helpers.decorators import authorized_users_only, errors
+from MusicKen.helpers.errors import DurationLimitError
 from MusicKen.helpers.gets import get_file_name
+from MusicKen.modules.play import cb_admin_check, generate_cover
 from MusicKen.services.callsmusic import callsmusic, queues
 from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
@@ -43,15 +24,16 @@ from MusicKen.services.downloaders import youtube
 chat_id = None
 
 
-
-@Client.on_message(filters.command(["channelplaylist","cplaylist"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelplaylist", "cplaylist"]) & filters.group & ~filters.edited
+)
 async def playlist(client, message):
     try:
-      lel = await client.get_chat(message.chat.id)
-      lol = lel.linked_chat.id
+        lel = await client.get_chat(message.chat.id)
+        lol = lel.linked_chat.id
     except:
-      message.reply("Apakah channel ini terhubung?")
-      return
+        message.reply("Apakah channel ini terhubung?")
+        return
     global que
     queue = que.get(lol)
     if not queue:
@@ -109,15 +91,17 @@ def r_ply(type_):
     )
 
 
-@Client.on_message(filters.command(["channelcurrent","ccurrent"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelcurrent", "ccurrent"]) & filters.group & ~filters.edited
+)
 async def ee(client, message):
     try:
-      lel = await client.get_chat(message.chat.id)
-      lol = lel.linked_chat.id
-      conv = lel.linked_chat
+        lel = await client.get_chat(message.chat.id)
+        lol = lel.linked_chat.id
+        conv = lel.linked_chat
     except:
-      await message.reply("Apakah obrolan ini terhubung")
-      return
+        await message.reply("Apakah obrolan ini terhubung")
+        return
     queue = que.get(lol)
     stats = updated_stats(conv, queue)
     if stats:
@@ -125,16 +109,19 @@ async def ee(client, message):
     else:
         await message.reply("Tidak ada instance VCG yang berjalan dalam obrolan ini")
 
-@Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.edited)
+
+@Client.on_message(
+    filters.command(["channelplayer", "cplayer"]) & filters.group & ~filters.edited
+)
 @authorized_users_only
 async def settings(client, message):
     try:
-      lel = await client.get_chat(message.chat.id)
-      lol = lel.linked_chat.id
-      conv = lel.linked_chat
+        lel = await client.get_chat(message.chat.id)
+        lol = lel.linked_chat.id
+        conv = lel.linked_chat
     except:
-      await message.reply("Apakah obrolan ini terhubung")
-      return
+        await message.reply("Apakah obrolan ini terhubung")
+        return
     queue = que.get(lol)
     stats = updated_stats(conv, queue)
     if stats:
@@ -152,11 +139,11 @@ async def settings(client, message):
 async def p_cb(b, cb):
     global que
     try:
-      lel = await client.get_chat(cb.message.chat.id)
-      lol = lel.linked_chat.id
-      conv = lel.linked_chat
+        lel = await client.get_chat(cb.message.chat.id)
+        lol = lel.linked_chat.id
+        conv = lel.linked_chat
     except:
-      return
+        return
     que.get(lol)
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
@@ -196,18 +183,17 @@ async def m_cb(b, cb):
     ):
         chet_id = int(chat.title[13:])
     else:
-      try:
-        lel = await b.get_chat(cb.message.chat.id)
-        lol = lel.linked_chat.id
-        conv = lel.linked_chat
-        chet_id = lol
-      except:
-        return
+        try:
+            lel = await b.get_chat(cb.message.chat.id)
+            lol = lel.linked_chat.id
+            conv = lel.linked_chat
+            chet_id = lol
+        except:
+            return
     qeue = que.get(chet_id)
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
     m_chat = cb.message.chat
-
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
@@ -219,9 +205,7 @@ async def m_cb(b, cb):
             callsmusic.pytgcalls.pause_stream(chet_id)
 
             await cb.answer("Music Paused!")
-            await cb.message.edit(
-                updated_stats(conv, qeue), reply_markup=r_ply("play")
-            )
+            await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("play"))
 
     elif type_ == "cplay":
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
@@ -260,7 +244,9 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
-            await cb.answer("Obrolan tidak tersambung atau sudah diputar", show_alert=True)
+            await cb.answer(
+                "Obrolan tidak tersambung atau sudah diputar", show_alert=True
+            )
         else:
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
@@ -268,7 +254,9 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
-            await cb.answer("Obrolan tidak tersambung atau sudah dijeda", show_alert=True)
+            await cb.answer(
+                "Obrolan tidak tersambung atau sudah dijeda", show_alert=True
+            )
         else:
             callsmusic.pytgcalls.pause_stream(chet_id)
 
@@ -306,7 +294,9 @@ async def m_cb(b, cb):
             if callsmusic.queues.is_empty(chet_id):
                 callsmusic.pytgcalls.leave_group_call(chet_id)
 
-                await cb.message.edit("Tidak Ada Lagi Daftar Putar..\n- Meninggalkan VCG!")
+                await cb.message.edit(
+                    "Tidak Ada Lagi Daftar Putar..\n- Meninggalkan VCG!"
+                )
             else:
                 callsmusic.pytgcalls.change_stream(
                     chet_id, callsmusic.queues.get(chet_id)["file"]
@@ -329,7 +319,9 @@ async def m_cb(b, cb):
         await cb.answer("Obrolan tidak terhubung!", show_alert=True)
 
 
-@Client.on_message(filters.command(["channelplay","cplay"])  & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelplay", "cplay"]) & filters.group & ~filters.edited
+)
 @authorized_users_only
 @errors
 async def play(_, message: Message):
@@ -337,17 +329,17 @@ async def play(_, message: Message):
     lel = await message.reply("🔄 **Processing**")
 
     try:
-      conchat = await _.get_chat(message.chat.id)
-      conv = conchat.linked_chat
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await _.get_chat(message.chat.id)
+        conv = conchat.linked_chat
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("Apakah obrolan ini terhubung")
-      return
+        await message.reply("Apakah obrolan ini terhubung")
+        return
     try:
-      administrators = await get_administrators(conv)
+        administrators = await get_administrators(conv)
     except:
-      await message.reply("Apakah saya admin di channel")
+        await message.reply("Apakah saya admin di channel")
     try:
         user = await USER.get_me()
     except:
@@ -411,12 +403,10 @@ async def play(_, message: Message):
             or message.reply_to_message.caption_entities
         ):
             entities = message.reply_to_message.entities + entities
-        urls = [entity for entity in entities if entity.type == 'url']
-        text_links = [
-            entity for entity in entities if entity.type == 'text_link'
-        ]
+        urls = [entity for entity in entities if entity.type == "url"]
+        text_links = [entity for entity in entities if entity.type == "text_link"]
     else:
-        urls=None
+        urls = None
     if text_links:
         urls = True
     audio = (
@@ -426,7 +416,9 @@ async def play(_, message: Message):
     )
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
-            raise DurationLimitError(f"❌ Video yang berdurasi lebih dari {DURATION_LIMIT} menit tidak boleh diputar!")
+            raise DurationLimitError(
+                f"❌ Video yang berdurasi lebih dari {DURATION_LIMIT} menit tidak boleh diputar!"
+            )
         keyboard = InlineKeyboardMarkup(
             [
                 [
@@ -473,17 +465,21 @@ async def play(_, message: Message):
             print(str(e))
             return
         dlurl = url
-        dlurl=dlurl.replace("youtube","youtubepp")
+        dlurl = dlurl.replace("youtube", "youtubepp")
         keyboard = InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
-                        ]
+            [
+                [
+                    InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}"
                     )
+                ],
+                [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+            ]
+        )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -513,17 +509,21 @@ async def play(_, message: Message):
             return
 
         dlurl = url
-        dlurl=dlurl.replace("youtube","youtubepp")
+        dlurl = dlurl.replace("youtube", "youtubepp")
         keyboard = InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
-                                InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
-                            ],   
-                            [InlineKeyboardButton("💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}")],
-                            [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
-                        ]
+            [
+                [
+                    InlineKeyboardButton("📖 ᴘʟᴀʏʟɪꜱᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("💬 ɢʀᴏᴜᴘ", url=f"https://t.me/{groupsupport}"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "💌 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{updateschannel}"
                     )
+                ],
+                [InlineKeyboardButton(text="🗑 ᴛᴜᴛᴜᴘ", callback_data="cls")],
+            ]
+        )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -538,9 +538,10 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {message.from_user.mention}",
-                   reply_markup=keyboard)
+            caption=f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n"
+            + f"🎼 **Request Dari:** {message.from_user.mention}",
+            reply_markup=keyboard,
+        )
     else:
         chat_id = chid
         que[chat_id] = []
@@ -554,16 +555,14 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"🏷 **Judul:** [{title[:60]}]({url})\n**⏱ Durasi:** {duration}\n" \
-                + f"💡 **Status:** Playing\n🎧 **Permintaan:** {requested_by}".format(
-        message.from_user.mention()
-        ),
+            caption=f"🏷 **Judul:** [{title[:60]}]({url})\n**⏱ Durasi:** {duration}\n"
+            + f"💡 **Status:** Playing\n🎧 **Permintaan:** {requested_by}".format(
+                message.from_user.mention()
+            ),
         )
 
         os.remove("final.png")
         return await lel.delete()
-
-
 
 
 # Have u read all. If read RESPECT :-)

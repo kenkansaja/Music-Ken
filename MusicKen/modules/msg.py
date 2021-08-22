@@ -1,17 +1,17 @@
-import os
-from MusicKen.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL, OWNER
-class Messages():
-      HELP_MSG = [
+from MusicKen.config import ASSISTANT_NAME, OWNER, PROJECT_NAME
+
+
+class Messages:
+    HELP_MSG = [
         ".",
-f"""
+        f"""
 **👋🏻 Hai Selamat Datang Kembali Di [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
 
 ⚪️ {PROJECT_NAME} Dapat Memutar Musik Di Obrolan Suara Grup Anda Serta Obrolan Suara Saluran
 
 ⚪️ Assistant Name >> @{ASSISTANT_NAME}\n\n☑️ Klik Selanjutnya Untuk Informasi Lebih Lanjut**
 """,
-
-f"""
+        f"""
 **🛠️ Pengaturan**
 
 1) Jadikan Bot Sebagai Admin
@@ -26,7 +26,7 @@ f"""
 2) Kirim /userbotjoinchannel Di Grup Tertaut
 3) Sekarang Kirim Perintah Di Grup Tertaut
 """,
-"""
+        """
 **🔰 Perintah**
 
 **=>> Memutar Lagu 🎧**
@@ -49,8 +49,8 @@ Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /en
 **==>>Download Lagu 📥**
 
 • /song [nama lagu]: Unduh audio lagu dari youtube
-""" ,
-f"""
+""",
+        f"""
 **=>> Saluran Music Play 🛠**
 
 ⚪️ Hanya untuk admin grup tertaut:
@@ -78,7 +78,7 @@ f"""
 - /admincache: Memperbarui Info Admin Grup Anda. Coba Jika Bot Tidak Mengenali Admin
 - /userbotjoin: Undang @{ASSISTANT_NAME} Userbot Ke Grup Anda
 """,
-f"""👋🏻 Hallo, Nama saya [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
+        f"""👋🏻 Hallo, Nama saya [{PROJECT_NAME}](https://telegra.ph/file/ed136c19e7f6afddb4912.jpg)
 Dikekolah oleh {OWNER}
 ・✦▭▭▭▭✧◦✦◦✧▭▭▭▭✦ ・
 ☑️ Saya memiliki banyak fitur untuk anda yang suka lagu
@@ -88,5 +88,5 @@ Dikekolah oleh {OWNER}
 🔘 Mencari link youtube
 ・✦▭▭▭▭✧◦✦◦✧▭▭▭▭✦ ・
 ☑️ Klik tombol bantuan untuk informasi lebih lanjut
-"""
-]
+""",
+    ]

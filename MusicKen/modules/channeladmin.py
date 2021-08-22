@@ -1,26 +1,23 @@
-
 from asyncio.queues import QueueEmpty
-from MusicKen.config import que
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from MusicKen.function.admins import set
-from MusicKen.helpers.channelmusic import get_chat_id
-from MusicKen.helpers.decorators import authorized_users_only, errors
-from MusicKen.helpers.filters import command, other_filters
 from MusicKen.services.callsmusic import callsmusic
 
 
-
-@Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelpause", "cpause"]) & filters.group & ~filters.edited
+)
 async def pause(_, message: Message):
     try:
-      conchat = await _.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await _.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("**Apakah obrolan terhubung?**")
-      return    
+        await message.reply("**Apakah obrolan terhubung?**")
+        return
     chat_id = chid
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
@@ -31,15 +28,17 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ **Paused!**")
 
 
-@Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelresume", "cresume"]) & filters.group & ~filters.edited
+)
 async def resume(_, message: Message):
     try:
-      conchat = await _.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await _.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("**Apakah obrolan terhubung?**")
-      return    
+        await message.reply("**Apakah obrolan terhubung?**")
+        return
     chat_id = chid
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
@@ -50,15 +49,17 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ **Resumed!**")
 
 
-@Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelend", "cend"]) & filters.group & ~filters.edited
+)
 async def stop(_, message: Message):
     try:
-      conchat = await _.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await _.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("**Apakah obrolan terhubung?**")
-      return    
+        await message.reply("**Apakah obrolan terhubung?**")
+        return
     chat_id = chid
     if chat_id not in callsmusic.pytgcalls.active_calls:
         await message.reply_text("❗ **Tidak ada Lagu yang sedang diputar!**")
@@ -72,16 +73,18 @@ async def stop(_, message: Message):
         await message.reply_text("❌ **Memberhentikan Lagu!**")
 
 
-@Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
+@Client.on_message(
+    filters.command(["channelskip", "cskip"]) & filters.group & ~filters.edited
+)
 async def skip(_, message: Message):
     global que
     try:
-      conchat = await _.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await _.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("**Apakah obrolan terhubung?**")
-      return    
+        await message.reply("**Apakah obrolan terhubung?**")
+        return
     chat_id = chid
     if chat_id not in callsmusic.pytgcalls.active_calls:
         await message.reply_text("❗ **Tidak ada Lagu Selanjutnya untuk dilewati!**")
@@ -101,12 +104,12 @@ async def skip(_, message: Message):
 @Client.on_message(filters.command("channeladmincache"))
 async def admincache(client, message: Message):
     try:
-      conchat = await client.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await client.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("**Apakah obrolan terhubung?**")
-      return
+        await message.reply("**Apakah obrolan terhubung?**")
+        return
     set(
         chid,
         [

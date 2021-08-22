@@ -7,6 +7,7 @@ from MusicKen.services.callsmusic import queues
 client = Client(SESSION_NAME, API_ID, API_HASH)
 pytgcalls = PyTgCalls(client)
 
+
 @pytgcalls.on_stream_end()
 def on_stream_end(chat_id: int) -> None:
     queues.task_done(chat_id)

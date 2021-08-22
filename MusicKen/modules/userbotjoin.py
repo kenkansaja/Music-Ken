@@ -15,12 +15,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+import asyncio
+
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-import asyncio
+
+from MusicKen.config import SUDO_USERS
 from MusicKen.helpers.decorators import authorized_users_only, errors
 from MusicKen.services.callsmusic.callsmusic import client as USER
-from MusicKen.config import SUDO_USERS
+
 
 @Client.on_message(filters.command(["userbotjoin"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
@@ -69,37 +72,45 @@ async def rem(USER, message):
             "\n\nAtau keluarkan saya secara manual dari ke Grup Anda</b>",
         )
         return
-    
+
+
 @Client.on_message(filters.command(["userbotleaveall"]))
 async def bye(client, message):
     if message.from_user.id in SUDO_USERS:
-        left=0
-        failed=0
+        left = 0
+        failed = 0
         lol = await message.reply("**Asisten Meninggalkan semua obrolan**")
         async for dialog in USER.iter_dialogs():
             try:
                 await USER.leave_chat(dialog.chat.id)
-                left = left+1
-                await lol.edit(f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan.")
+                left = left + 1
+                await lol.edit(
+                    f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan."
+                )
             except:
-                failed=failed+1
-                await lol.edit(f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan.")
+                failed = failed + 1
+                await lol.edit(
+                    f"Asisten pergi... Berhasil: {left} obrolan. Gagal: {failed} obrolan."
+                )
             await asyncio.sleep(0.7)
-        await client.send_message(message.chat.id, f"Berhasil {left} obrolan. Gagal {failed} obrolan.")
-    
-    
-@Client.on_message(filters.command(["userbotjoinchannel","ubjoinc"]) & ~filters.private & ~filters.bot)
+        await client.send_message(
+            message.chat.id, f"Berhasil {left} obrolan. Gagal {failed} obrolan."
+        )
+
+
+@Client.on_message(
+    filters.command(["userbotjoinchannel", "ubjoinc"]) & ~filters.private & ~filters.bot
+)
 @authorized_users_only
 @errors
 async def addcchannel(client, message):
     try:
-      conchat = await client.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
+        conchat = await client.get_chat(message.chat.id)
+        conid = conchat.linked_chat.id
+        chid = conid
     except:
-      await message.reply("Apakah obrolan terhubung?")
-      return    
-    chat_id = chid
+        await message.reply("Apakah obrolan terhubung?")
+        return
     try:
         invitelink = await client.export_chat_invite_link(chid)
     except:
@@ -130,4 +141,3 @@ async def addcchannel(client, message):
     await message.reply_text(
         f"<b>{user.first_name} sudah bergabung dengan obrolan Anda</b>",
     )
-    

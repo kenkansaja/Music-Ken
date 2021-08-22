@@ -1,6 +1,8 @@
 from typing import Callable
+
 from pyrogram import Client
 from pyrogram.types import Message
+
 from MusicKen.config import SUDO_USERS
 from MusicKen.helpers.admins import get_administrators
 
@@ -27,4 +29,3 @@ def authorized_users_only(func: Callable) -> Callable:
                 return await func(client, message)
 
     return decorator
-
