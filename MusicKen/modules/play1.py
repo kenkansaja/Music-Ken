@@ -15,6 +15,8 @@ from youtube_search import YoutubeSearch
 
 from MusicKen.config import ARQ_API_KEY, DURATION_LIMIT, KENKAN, SUPPORT_GROUP
 from MusicKen.config import UPDATES_CHANNEL as updateschannel
+from MusicKen.config import BOT_NAME as bn
+from MusicKen.config import BOT_USERNAME as bu
 from MusicKen.config import que
 from MusicKen.function.admins import admins as a
 from MusicKen.helpers.admins import get_administrators
