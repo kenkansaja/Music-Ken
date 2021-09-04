@@ -6,6 +6,8 @@ from MusicKen.config import DURATION_LIMIT
 from MusicKen.helpers.errors import DurationLimitError
 
 ydl_opts = {
+    "format": "bestaudio/best",
+    "format": "141/bestaudio[ext=m4a]",
     "format": "bestaudio[ext=m4a]",
     "geo-bypass": True,
     "nocheckcertificate": True,
