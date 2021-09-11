@@ -204,8 +204,7 @@ async def ghelp(_, message: Message):
 **🔰 Perintah**
       
 **=>> Memutar Lagu 🎧**
-      
-• /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
+
 • /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /yt (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 • /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
