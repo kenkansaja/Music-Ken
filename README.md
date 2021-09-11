@@ -79,7 +79,6 @@ $ python(3) -m MusicKen
 
 ### =>> Memutar Lagu 🎧
 
-- /play (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /lplay - Untuk Memutar lagu yang Anda minta melalui song di gc
 - /ytplay (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
 - /p (nama lagu) - Untuk Memutar lagu yang Anda minta melalui youtube
