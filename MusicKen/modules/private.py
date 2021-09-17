@@ -216,7 +216,7 @@ async def ghelp(_, message: Message):
 • /end: ​​Menghentikan pemutaran media
 • /current: Menampilkan trek yang sedang diputar
 • /playlist: Menampilkan daftar putar
-      
+• /userbotjoin - undang asisten ke obrolan group Anda      
 Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /end Hanya Untuk Admin Grup
       
 **==>>Download Lagu 📥**
@@ -225,7 +225,7 @@ Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /en
 
 **=>> Saluran Music Play 🛠**
       
-⚪️ Hanya untuk admin grup tertaut:
+⚪️ Hanya untuk admin channel tertaut:
       
 • /cplay (nama lagu) - putar lagu yang Anda minta
 • /cplaylist - Tampilkan daftar yang sedang diputar
@@ -235,7 +235,7 @@ Semua Perintah Bisa Digunakan Kecuali Perintah /player /skip /pause /resume  /en
 • /cresume - melanjutkan pemutaran lagu
 • /cskip - putar lagu berikutnya
 • /cend - hentikan pemutaran musik
-• /userbotjoinchannel - undang asisten ke obrolan Anda""",
+• /userbotjoinchannel - undang asisten ke obrolan channel Anda""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton(text="🔵 ᴏᴡɴᴇʀ", url=f"t.me/{OWNER}")],
