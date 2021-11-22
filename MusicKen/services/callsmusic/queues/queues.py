@@ -1,6 +1,6 @@
+from asyncio import Queue
+from asyncio import QueueEmpty as Empty
 from typing import Dict
-from asyncio import Queue, QueueEmpty as Empty
-
 
 queues: Dict[int, Queue] = {}
 
