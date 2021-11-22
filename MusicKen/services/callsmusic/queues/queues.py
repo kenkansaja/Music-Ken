@@ -1,6 +1,6 @@
-from asyncio import Queue
-from asyncio import QueueEmpty as Empty
-from typing import Dict, Union
+from typing import Dict
+from asyncio import Queue, QueueEmpty as Empty
+
 
 queues: Dict[int, Queue] = {}
 
@@ -12,7 +12,7 @@ async def put(chat_id: int, **kwargs) -> int:
     return queues[chat_id].qsize()
 
 
-def get(chat_id: int) -> Union[Dict[str, str], None]:
+def get(chat_id: int) -> Dict[str, str]:
     if chat_id in queues:
         try:
             return queues[chat_id].get_nowait()
@@ -38,5 +38,6 @@ def clear(chat_id: int):
     if chat_id in queues:
         if queues[chat_id].empty():
             raise Empty
-        queues[chat_id].queue = []
+        else:
+            queues[chat_id].queue = []
     raise Empty
