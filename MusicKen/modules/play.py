@@ -621,7 +621,15 @@ async def play(_, message: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
-            callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+            await callsmusic.pytgcalls.join_group_call(
+                chat_id,
+                InputStream( 
+                    InputAudioStream(
+                        file_path,
+                ),
+            ),
+            stream_type=StreamType().local_stream,
+        )
         except:
             message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
             return
@@ -692,7 +700,7 @@ async def stream(_, message: Message):
         )
         return await lel.delete()
     else:
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        callsmusic.pytgcalls.join_group_call(message.chat.id, InputStream(InputAudioStream(file_path,),),stream_type=StreamType().local_stream,)
         await message.reply_photo(
             photo=f"{KENKAN}",
             reply_markup=keyboard,
