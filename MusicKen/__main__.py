@@ -17,8 +17,6 @@ bot = Bot(
     bot_token=BOT_TOKEN,
     plugins=dict(root="MusicKen.modules"),
 )
-print(f"[INFO]: MUSIC KEN SUDAH AKTIF!")
-
 
 bot.start()
 run()
