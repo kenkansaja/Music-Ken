@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from pytgcalls.types.input_stream import AudioPiped
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -623,12 +623,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         try:
             await callsmusic.pytgcalls.join_group_call(
-                chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file_path,
-                    ),
-                ),
+                chat_id, AudioPiped(file_path),
                 stream_type=StreamType().local_stream,
             )
         except:
@@ -702,12 +697,7 @@ async def stream(_, message: Message):
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(
-            message.chat.id,
-            InputStream(
-                InputAudioStream(
-                    file_path,
-                ),
-            ),
+            message.chat.id, AudioPiped(file_path),
             stream_type=StreamType().local_stream,
         )
         await message.reply_photo(
