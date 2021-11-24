@@ -10,6 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pytgcalls.types.input_stream import InputAudioStream, InputStream
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -27,9 +28,6 @@ from MusicKen.services.callsmusic import callsmusic, queues
 from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
 from MusicKen.services.downloaders import youtube
-from pytgcalls.types.input_stream import InputAudioStream
-from pytgcalls.types.input_stream import InputStream
-
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
