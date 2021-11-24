@@ -27,6 +27,9 @@ from MusicKen.services.callsmusic import callsmusic, queues
 from MusicKen.services.callsmusic.callsmusic import client as USER
 from MusicKen.services.converter.converter import convert
 from MusicKen.services.downloaders import youtube
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
+
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
