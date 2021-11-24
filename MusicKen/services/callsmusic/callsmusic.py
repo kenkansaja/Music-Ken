@@ -17,14 +17,15 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
 
     if queues.is_empty(chat_id):
         await pytgcalls.leave_group_call(chat_id)
-    else:       
-         await pytgcalls.change_stream(
-                    queues.get(chat_id)["file"],
-                    InputStream(
-                        InputAudioStream(
-                            file,
-                        ),
-                    ),
-                )
+    else:
+        await pytgcalls.change_stream(
+            queues.get(chat_id)["file"],
+            InputStream(
+                InputAudioStream(
+                    file,
+                ),
+            ),
+        )
+
 
 run = pytgcalls.start
