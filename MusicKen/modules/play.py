@@ -10,7 +10,8 @@ from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from pytgcalls.types.input_stream import AudioPiped
+from pytgcalls.types.input_stream import InputAudioStream, InputStream
+
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -624,9 +625,12 @@ async def play(_, message: Message):
         try:
             await callsmusic.pytgcalls.join_group_call(
                 chat_id,
-                AudioPiped(file_path),
-                stream_type=StreamType().local_stream,
-            )
+                InputStream(
+                    InputAudioStream(
+                        file_path,
+                    ),
+                ),
+            )          
         except:
             message.reply("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
             return
@@ -698,10 +702,13 @@ async def stream(_, message: Message):
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(
-            message.chat.id,
-            AudioPiped(file_path),
-            stream_type=StreamType().local_stream,
-        )
+                chat_id,
+                InputStream(
+                    InputAudioStream(
+                        file_path,
+                    ),
+                ),
+            )          
         await message.reply_photo(
             photo=f"{KENKAN}",
             reply_markup=keyboard,
