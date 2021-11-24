@@ -18,6 +18,10 @@ bot = Bot(
     plugins=dict(root="MusicKen.modules"),
 )
 
+async def musik_on():
+    await bot.join_chat("@musikkugroup")
+    await bot.join_chat("@musikkuchannel")
+
 bot.start()
 run()
 idle()
