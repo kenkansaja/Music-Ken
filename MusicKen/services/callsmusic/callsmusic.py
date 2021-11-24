@@ -1,8 +1,8 @@
 from pyrogram import Client
-from pytgcalls import PyTgCalls
+from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped
-from pytgcalls import StreamType
+
 from MusicKen.config import API_HASH, API_ID, SESSION_NAME
 from MusicKen.services.callsmusic.queues import queues
 
@@ -20,7 +20,8 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
     else:
         await pytgcalls.join_group_call(
             chat_id,
-                AudioPiped(queues.get(chat_id)["file"]), stream_type=StreamType().local_stream,
+            AudioPiped(queues.get(chat_id)["file"]),
+            stream_type=StreamType().local_stream,
         )
 
 
