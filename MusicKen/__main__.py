@@ -2,7 +2,7 @@ import requests
 from pyrogram import Client as Bot
 from pytgcalls import idle
 
-from MusicKen.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
+from MusicKen.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN, SESSION_NAME
 from MusicKen.services.callsmusic import run
 
 response = requests.get(BG_IMAGE)
@@ -18,9 +18,10 @@ bot = Bot(
     plugins=dict(root="MusicKen.modules"),
 )
 
+app = (API_ID, API_HASH, SESSION_NAME)
 async def musik_on():
-    await bot.join_chat("@musikkugroup")
-    await bot.join_chat("@musikkuchannel")
+    await bot.join_chat("musikkugroup")
+    await bot.join_chat("musikkuchannel")
 
 bot.start()
 run()
