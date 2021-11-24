@@ -2,6 +2,9 @@ import os
 from os import path
 from typing import Callable
 
+from pytgcalls.types.input_stream import InputAudioStream, InputStream
+
+
 import aiofiles
 import aiohttp
 import ffmpeg
