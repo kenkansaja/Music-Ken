@@ -20,8 +20,8 @@ bot = Bot(
 
 app = (API_ID, API_HASH, SESSION_NAME)
 async def musik_on():
-    await bot.join_chat("musikkugroup")
-    await bot.join_chat("musikkuchannel")
+    await app.join_chat("musikkugroup")
+    await app.join_chat("musikkuchannel")
 
 bot.start()
 run()
