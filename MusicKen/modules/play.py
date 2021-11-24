@@ -623,7 +623,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         try:
             await callsmusic.pytgcalls.join_group_call(
-                chat_id, AudioPiped(file_path),
+                chat_id,
+                AudioPiped(file_path),
                 stream_type=StreamType().local_stream,
             )
         except:
@@ -697,7 +698,8 @@ async def stream(_, message: Message):
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(
-            message.chat.id, AudioPiped(file_path),
+            message.chat.id,
+            AudioPiped(file_path),
             stream_type=StreamType().local_stream,
         )
         await message.reply_photo(
