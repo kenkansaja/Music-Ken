@@ -4,7 +4,7 @@ from pytgcalls.types import Update
 from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from MusicKen.config import API_HASH, API_ID, SESSION_NAME
-from MusicKen.services.callsmusic import queues
+from MusicKen.services.callsmusic.queues import queues
 
 client = Client(SESSION_NAME, API_ID, API_HASH)
 pytgcalls = PyTgCalls(client)
