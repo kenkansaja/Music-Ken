@@ -1,5 +1,6 @@
 from pyrogram import Client
 from pytgcalls import PyTgCalls
+from pytgcalls.types import Update
 from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from MusicKen.config import API_HASH, API_ID, SESSION_NAME
