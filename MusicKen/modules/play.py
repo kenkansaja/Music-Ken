@@ -405,7 +405,7 @@ async def play(_, message: Message):
                         "<b>Ingatlah untuk menambahkan Assistant bot ke Channel Anda</b>",
                     )
                 try:
-                    invitelink = await _.export_chat_invite_link(chid)
+                    await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
                         "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
@@ -413,13 +413,13 @@ async def play(_, message: Message):
                     return
 
                 try:
-                   invite_link = await _.chat.export_invite_link()
-                   if "+" in invite_link:
-                       link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
-                       await USER.join_chat(f"https://t.me/joinchat/{link_hash}")
-                       await lel.edit(
-                        "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
-                    )
+                    invite_link = await _.chat.export_invite_link()
+                    if "+" in invite_link:
+                        link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
+                        await USER.join_chat(f"https://t.me/joinchat/{link_hash}")
+                        await lel.edit(
+                            "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
+                        )
 
                 except UserAlreadyParticipant:
                     pass
