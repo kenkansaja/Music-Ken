@@ -1,20 +1,3 @@
-# Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
 import asyncio
 
 from pyrogram import Client, filters
@@ -31,7 +14,9 @@ from MusicKen.services.callsmusic.callsmusic import client as USER
 async def addchannel(client, message):
     chid = message.chat.id
     try:
-        invitelink = await client.export_chat_invite_link(chid)
+        invite_link = await client.chat.export_invite_link()
+        if "+" in invite_link:
+            link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
     except:
         await message.reply_text(
             "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
@@ -44,7 +29,7 @@ async def addchannel(client, message):
         user.first_name = "MusicKen"
 
     try:
-        await USER.join_chat(invitelink)
+        await USER.join_chat(f"https://t.me/joinchat/{link_hash}")
     except UserAlreadyParticipant:
         await message.reply_text(
             f"<b>{user.first_name} sudah ada di obrolan Anda</b>",
@@ -113,6 +98,8 @@ async def addcchannel(client, message):
         return
     try:
         invitelink = await client.export_chat_invite_link(chid)
+        if "+" in invite_link:
+            link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
     except:
         await message.reply_text(
             "<b>Tambahkan saya sebagai admin saluran Anda terlebih dahulu</b>",
@@ -125,7 +112,7 @@ async def addcchannel(client, message):
         user.first_name = "MusicKen"
 
     try:
-        await USER.join_chat(invitelink)
+        await USER.join_chat(f"https://t.me/joinchat/{link_hash}")
     except UserAlreadyParticipant:
         await message.reply_text(
             f"<b>{user.first_name} sudah ada di channel anda</b>",
