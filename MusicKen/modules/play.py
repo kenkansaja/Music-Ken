@@ -413,8 +413,11 @@ async def play(_, message: Message):
                     return
 
                 try:
-                    await USER.join_chat(invitelink)
-                    await lel.edit(
+                   invite_link = await _.chat.export_invite_link()
+                   if "+" in invite_link:
+                       link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
+                       await USER.join_chat(f"https://t.me/joinchat/{link_hash}")
+                       await lel.edit(
                         "<b>Assistant Bot berhasil bergabung dengan Group anda</b>",
                     )
 
