@@ -12,7 +12,7 @@ from MusicKen.services.callsmusic.callsmusic import client as USER
 @authorized_users_only
 @errors
 async def addchannel(client, message):
-    chid = message.chat.id
+    message.chat.id
     try:
         invite_link = await client.chat.export_invite_link()
         if "+" in invite_link:
@@ -97,7 +97,7 @@ async def addcchannel(client, message):
         await message.reply("Apakah obrolan terhubung?")
         return
     try:
-        invitelink = await client.export_chat_invite_link(chid)
+        await client.export_chat_invite_link(chid)
         if "+" in invite_link:
             link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
     except:
